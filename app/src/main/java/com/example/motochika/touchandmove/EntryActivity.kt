@@ -12,9 +12,6 @@ class YEntryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entry)
 
-
-
-
         val actionBar = supportActionBar
 
         actionBar!!.hide()
