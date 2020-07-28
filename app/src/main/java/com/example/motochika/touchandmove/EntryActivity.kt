@@ -33,7 +33,5 @@ class YEntryActivity : AppCompatActivity() {
             startActivity(Intent(this, OssLicensesMenuActivity::class.java))
         }
 
-
-
     }
 }
