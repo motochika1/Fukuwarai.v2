@@ -1,9 +1,14 @@
 package com.example.motochika.touchandmove
 
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,11 +18,15 @@ class MainActivity : AppCompatActivity(){
 
     var i = 0
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val actionBar = supportActionBar
+
+        val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        val vibrationEffect = VibrationEffect.createOneShot(200, 1)
 
         actionBar!!.hide()
 
@@ -30,7 +39,7 @@ class MainActivity : AppCompatActivity(){
             if (motionEvent.action == MotionEvent.ACTION_MOVE) {
 
 
-
+                vibrator.vibrate(vibrationEffect)
                 view.x = motionEvent.rawX - view.width/2
                 view.y = motionEvent.rawY - view.height/2
 
@@ -42,9 +51,12 @@ class MainActivity : AppCompatActivity(){
             //タップして画像を回転
             if (motionEvent.action == MotionEvent.ACTION_DOWN) {
 
+
                 i+=10
 
                 view.rotation =i.toFloat()
+
+
 
                 Log.d("MainActivity","rotated")
 
