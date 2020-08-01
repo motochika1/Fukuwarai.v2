@@ -1,4 +1,4 @@
-package com.example.motochika.touchandmove
+package com.example.motochika.fukuwaraiv2
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
