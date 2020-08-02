@@ -24,7 +24,7 @@ class SecondFaceActivity : AppCompatActivity() {
         val actionBar = supportActionBar
 
         val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        val vibrationEffect = VibrationEffect.createOneShot(100, 1)
+        val vibrationEffect = VibrationEffect.createOneShot(1000, 1)
 
         actionBar!!.hide()
 
@@ -35,7 +35,7 @@ class SecondFaceActivity : AppCompatActivity() {
             if (motionEvent.action == MotionEvent.ACTION_MOVE) {
 
 
-                vibrator.vibrate(vibrationEffect)
+
                 view.x = motionEvent.rawX - view.width/2
                 view.y = motionEvent.rawY - view.height/2
 
@@ -46,6 +46,8 @@ class SecondFaceActivity : AppCompatActivity() {
             }
             if (motionEvent.action == MotionEvent.ACTION_DOWN) {
 
+                vibrator.vibrate(vibrationEffect)
+
                 i+=10
 
                 view.rotation =i.toFloat()
@@ -54,6 +56,16 @@ class SecondFaceActivity : AppCompatActivity() {
 
 
             }
+
+            if (motionEvent.action == MotionEvent.ACTION_UP) {
+
+                vibrator.cancel()
+
+                Log.d("MainActivity","canceled")
+
+
+            }
+
 
 
             true

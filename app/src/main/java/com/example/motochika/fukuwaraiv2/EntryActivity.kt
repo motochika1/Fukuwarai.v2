@@ -19,7 +19,7 @@ class EntryActivity : AppCompatActivity() {
         entry_okame_button.setOnClickListener {
 
 
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this,FirstFaceActivity::class.java))
         }
 
         entry_hyottoko_button.setOnClickListener {

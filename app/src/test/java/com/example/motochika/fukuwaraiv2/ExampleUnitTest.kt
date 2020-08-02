@@ -1,4 +1,4 @@
-package com.example.motochika.touchandmove
+package com.example.motochika.fukuwaraiv2
 
 import org.junit.Test
 

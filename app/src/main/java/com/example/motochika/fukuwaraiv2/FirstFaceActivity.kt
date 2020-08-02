@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 
-class MainActivity : AppCompatActivity(){
+class FirstFaceActivity : AppCompatActivity(){
 
     var i = 0
 
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(){
         val actionBar = supportActionBar
 
         val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        val vibrationEffect = VibrationEffect.createOneShot(1000, 1)
+        val vibrationEffect = VibrationEffect.createOneShot(1000, -1)
 
 
 

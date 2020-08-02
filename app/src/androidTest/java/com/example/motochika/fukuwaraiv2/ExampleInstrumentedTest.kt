@@ -1,4 +1,4 @@
-package com.example.motochika.touchandmove
+package com.example.motochika.fukuwaraiv2
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
