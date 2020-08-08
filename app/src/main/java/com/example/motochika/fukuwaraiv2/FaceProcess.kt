@@ -6,14 +6,14 @@ import com.google.mlkit.vision.common.InputImage
 
 class FaceProcess {
 
-    val visionImage = VisionImage()
-    val imputImage = visionImage.imageFromPath(MyfaceActivity(), "res/drawable/myface.jpg".toUri()) ?: null
+    private val visionImage = VisionImage()
+    private val inputImage = visionImage.imageFromPath(MyfaceActivity(), "/res/drawable/myface.jpg".toUri()) ?: null
 
 
-    fun FaceDetect(){
+    fun faceDetect(){
         val facedt = DetectFace()
-        if (imputImage != null) {
-            facedt.detectFaces(imputImage)
+        if (inputImage != null) {
+            facedt.detectFaces(inputImage)
         }
     }
 
