@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="397dp"
+        android:layout_width="match_parent"
         android:layout_height="422dp"
         android:contentDescription="@string/contentDescription"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,7 +19,7 @@
 
     <LinearLayout
         android:layout_width="197dp"
-        android:layout_height="134dp"
+        android:layout_height="150dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,6 +41,14 @@
             android:layout_height="36dp"
             android:background="@drawable/frame_style_of_buttons"
             android:text="@string/entry_okame_button" />
+
+        <Button
+            android:id="@+id/test_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/frame_style_of_buttons"
+            android:text="テスト" />
     </LinearLayout>
 
     <Button

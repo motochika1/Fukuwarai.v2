@@ -9,16 +9,5 @@ import java.net.URI
 //使用するイメージを持ってくる方法を記述したクラス
 class VisionImage {
 
-    fun imageFromPath(context: Context, uri: Uri): InputImage?{
 
-        val image: InputImage
-        return try {
-            image = InputImage.fromFilePath(context, uri)
-            image
-
-        } catch (e: IOException){
-            e.printStackTrace()
-            null
-        }
-    }
 }
