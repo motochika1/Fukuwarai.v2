@@ -33,5 +33,10 @@ class EntryActivity : AppCompatActivity() {
             startActivity(Intent(this, OssLicensesMenuActivity::class.java))
         }
 
+        test_button.setOnClickListener {
+
+            startActivity(Intent(this, MyFaceActivity::class.java))
+        }
+
     }
 }

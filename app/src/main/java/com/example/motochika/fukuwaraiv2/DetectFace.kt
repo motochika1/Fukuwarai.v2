@@ -1,6 +1,8 @@
 package com.example.motochika.fukuwaraiv2
 
 import android.content.Intent
+import android.graphics.Point
+import android.graphics.PointF
 import android.media.Image
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.*
@@ -13,8 +15,10 @@ import com.google.mlkit.vision.face.*
 
 class DetectFace {
 
+    lateinit var leftEyePos: List<PointF>
+    lateinit var rightEyePos: List<PointF>
 
-    fun detectFaces(image: InputImage) {
+    fun detectFaces(image: InputImage): List<PointF>{
 
         //FaceDetectorの初期設定
         val options = FaceDetectorOptions.Builder()
@@ -35,9 +39,9 @@ class DetectFace {
 
                 for (face in faces) {
 
-                    val leftEyePos = face.getContour(FaceContour.LEFT_EYE)?.points
+                    leftEyePos = face.getContour(FaceContour.LEFT_EYE)?.points as List<PointF>
 
-                    val rightEyePos = face.getContour(FaceContour.RIGHT_EYE)?.points
+                    rightEyePos = face.getContour(FaceContour.RIGHT_EYE)?.points as List<PointF>
 
                     val upperLipPos = face.getContour(FaceContour.UPPER_LIP_TOP)?.points
 
@@ -51,6 +55,6 @@ class DetectFace {
             .addOnFailureListener{
 
             }
-        
+        return leftEyePos
     }
 }

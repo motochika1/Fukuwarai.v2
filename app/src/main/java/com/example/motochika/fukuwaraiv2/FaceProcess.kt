@@ -1,20 +1,28 @@
 package com.example.motochika.fukuwaraiv2
 
-import android.media.FaceDetector
+import android.content.ContentResolver
+import android.net.Uri
 import androidx.core.net.toUri
-import com.google.mlkit.vision.common.InputImage
+import java.io.File
 
 class FaceProcess {
 
     private val visionImage = VisionImage()
-    private val inputImage = visionImage.imageFromPath(MyfaceActivity(), "/res/drawable/myface.jpg".toUri()) ?: null
+    private val inputImage2 = R.drawable.myface
+    private val inputImage = visionImage.imageFromPath(MyFaceActivity(), Uri.fromFile())
 
+    val facedt = DetectFace()
 
     fun faceDetect(){
-        val facedt = DetectFace()
+
         if (inputImage != null) {
             facedt.detectFaces(inputImage)
         }
+    }
+
+    fun getPos(facedt : DetectFace){
+
+
     }
 
 
