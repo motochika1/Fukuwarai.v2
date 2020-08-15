@@ -7,6 +7,7 @@ import android.graphics.Path
 import android.graphics.PointF
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceContour
 import com.google.mlkit.vision.face.FaceDetection
@@ -23,6 +24,7 @@ class MyFaceActivity : AppCompatActivity() {
 
     //assetフォルダに保存されている画像をBitmapに変換
     private val faceImage = getBitmapFromAsset(this, "myface.jpg")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_myface)
@@ -56,17 +58,33 @@ class MyFaceActivity : AppCompatActivity() {
                 .addOnSuccessListener {faces ->
 
                     getButton.isEnabled = true
+                        //顔が検出されなかった場合エラーメッセージ表示
+                        if(faces.size == 0){
+                            Toast.makeText(applicationContext, "Image not found", Toast.LENGTH_SHORT).show()
+                        }
+
+                        //一度上に重ねるグラフィックをクリア
+                        graphic_overlay.clear()
+
+                    //検出された顔に対して
                     for (face in faces) {
-
+                        //左目の座標(x,y)のリストを保持する
                         val leftEyePos = face.getContour(FaceContour.LEFT_EYE)?.points as List<PointF>
-
+                        //右目の座標(x,y)のリストを保持する
                         val rightEyePos = face.getContour(FaceContour.RIGHT_EYE)?.points as List<PointF>
-
+                        //上唇の座標(x,y)のリストを保持する
                         val upperLipPos = face.getContour(FaceContour.UPPER_LIP_TOP)?.points as List<PointF>
-
+                        //下唇の座標(x,y)のリストを保持する
                         val lowerLipPos = face.getContour(FaceContour.LOWER_LIP_BOTTOM)?.points as List<PointF>
 
+                        //座標に応じてgraphic_overlayにドットを描写するクラスを作成
+                        var faceGraphic = FaceContourGraphic(graphic_overlay)
+                        //graphic_overlayにドットを追加
+                        graphic_overlay.add(faceGraphic)
+                        //faceに対してドットを更新
+                        faceGraphic.updateFace(face)
                     }
+
 
                 }
                 .addOnFailureListener{
