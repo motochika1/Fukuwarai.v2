@@ -22,12 +22,11 @@ import java.io.IOException
 //FaceDetectorOptions　オブジェクト:　faceDetector の初期設定ができる
 class MyFaceActivity : AppCompatActivity() {
 
-    //assetフォルダに保存されている画像をBitmapに変換
-    private val faceImage = getBitmapFromAsset(this, "myface.jpg")
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_myface)
+
+
 
         getButton.setOnClickListener {
 
@@ -36,9 +35,10 @@ class MyFaceActivity : AppCompatActivity() {
     }
 
     private fun detectFace() {
-
+        //assetフォルダに保存されている画像をBitmapに変換
+        val image = getBitmapFromAsset(this, "myface.jpg")
         //ビットマップ画像をfaceImage型に変換
-        val faceImage = faceImage?.let { InputImage.fromBitmap(it, 0) }
+        val faceImage = image?.let { InputImage.fromBitmap(it, 0) }
         //FaceDetectorの初期設定
         val options = FaceDetectorOptions.Builder()
             .setClassificationMode(FaceDetectorOptions.PERFORMANCE_MODE_ACCURATE)
@@ -95,7 +95,7 @@ class MyFaceActivity : AppCompatActivity() {
         }
     }
 
-    fun getBitmapFromAsset(context: Context, filePath: String): Bitmap? {
+    private fun getBitmapFromAsset(context: Context, filePath: String): Bitmap? {
 
         val assetManager = context.assets
         var bitmap: Bitmap? = null
