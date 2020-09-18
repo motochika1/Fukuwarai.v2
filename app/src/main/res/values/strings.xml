@@ -3,4 +3,8 @@
     <string name="entry_hyottoko_button">ひょっとこで始める</string>
     <string name="entry_okame_button">オカメで始める</string>
     <string name="contentDescription">"anyStringValue"</string>
+    <string name="button_open">公開</string>
+    <string name="button_change">変える</string>
+    <string name="button_start_location">元の位置</string>
+    <string name="button_start">元の状態</string>
 </resources>
