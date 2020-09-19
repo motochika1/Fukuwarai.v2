@@ -75,7 +75,7 @@
             android:id="@+id/leftEye_image"
             android:layout_width="87dp"
             android:layout_height="43dp"
-            android:paddingStart="6dp"
+            android:paddingStart="7dp"
             app:srcCompat="@drawable/left_eye" />
 
     </LinearLayout>
