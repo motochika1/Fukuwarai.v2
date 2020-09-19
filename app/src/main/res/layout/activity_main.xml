@@ -11,97 +11,97 @@
         android:id="@+id/face"
         android:layout_width="377dp"
         android:layout_height="630dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@id/buttons"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045"
         app:srcCompat="@drawable/fukuwarai" />
 
+
     <LinearLayout
+        android:id="@+id/eyeBrows"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/face"
+        android:layout_marginTop="204dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@id/face"
-        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@id/face"
-        app:layout_constraintTop_toTopOf="@id/face"
-        app:layout_constraintVertical_bias="0.352">
+        app:layout_constraintTop_toTopOf="@id/face">
 
 
         <ImageView
             android:id="@+id/eyeBrow1"
             android:layout_width="46dp"
             android:layout_height="25dp"
+            android:layout_marginEnd="20dp"
             app:srcCompat="@drawable/eyeblow" />
 
         <ImageView
             android:id="@+id/eyeBlow2"
-            android:layout_width="94dp"
+            android:layout_width="46dp"
             android:layout_height="25dp"
+            android:layout_marginStart="20dp"
             app:srcCompat="@drawable/eyeblow" />
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/nose_image"
-        android:layout_width="110dp"
-        android:layout_height="89dp"
-        app:layout_constraintBottom_toBottomOf="@id/face"
-        app:layout_constraintEnd_toEndOf="@id/face"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="@id/face"
-        app:layout_constraintTop_toTopOf="@id/face"
-        app:layout_constraintVertical_bias="0.543"
-        app:srcCompat="@drawable/nose1" />
 
     <ImageView
         android:id="@+id/rightEye_image"
         android:layout_width="87dp"
         android:layout_height="43dp"
-        app:layout_constraintBottom_toBottomOf="@id/face"
-        app:layout_constraintEnd_toStartOf="@+id/leftEye_image"
-        app:layout_constraintHorizontal_bias="0.846"
+        android:layout_marginTop="28dp"
+        android:layout_marginStart="96dp"
         app:layout_constraintStart_toStartOf="@id/face"
-        app:layout_constraintTop_toTopOf="@id/face"
-        app:layout_constraintVertical_bias="0.435"
+        app:layout_constraintTop_toBottomOf="@id/eyeBrows"
         app:srcCompat="@drawable/right_eye" />
 
     <ImageView
         android:id="@+id/leftEye_image"
         android:layout_width="87dp"
         android:layout_height="43dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        app:layout_constraintBottom_toBottomOf="@id/face"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="96dp"
+        android:paddingBottom="1dp"
         app:layout_constraintEnd_toEndOf="@id/face"
-        app:layout_constraintTop_toTopOf="@id/face"
-        app:layout_constraintVertical_bias="0.435"
+        app:layout_constraintTop_toBottomOf="@id/eyeBrows"
         app:srcCompat="@drawable/left_eye" />
+
+    <ImageView
+        android:id="@+id/nose_image"
+        android:layout_width="110dp"
+        android:layout_height="89dp"
+        app:layout_constraintBottom_toTopOf="@id/mouth_image"
+        app:layout_constraintEnd_toEndOf="@id/face"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@id/face"
+        app:layout_constraintVertical_bias="0.917"
+        app:srcCompat="@drawable/nose1" />
 
     <ImageView
         android:id="@+id/mouth_image"
         android:layout_width="195dp"
         android:layout_height="111dp"
+        android:layout_marginBottom="132dp"
         app:layout_constraintBottom_toBottomOf="@id/face"
         app:layout_constraintEnd_toEndOf="@id/face"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="@id/face"
-        app:layout_constraintTop_toBottomOf="@+id/nose_image"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/mouth2" />
 
     <LinearLayout
+        android:id="@+id/buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.962">
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/changeFace_button"
@@ -124,9 +124,9 @@
             android:id="@+id/open_button"
             android:layout_width="80dp"
             android:layout_height="40dp"
-            android:layout_weight="1"
             android:layout_marginStart="@dimen/button_margin_side"
             android:layout_marginEnd="@dimen/button_margin_side"
+            android:layout_weight="1"
             android:background="@drawable/frame_style_of_buttons"
             android:text="@string/button_open"
             android:textAllCaps="false"

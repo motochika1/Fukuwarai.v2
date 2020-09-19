@@ -10,7 +10,7 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.RequiresApi
-import kotlinx.android.synthetic.main.activity_second_face.*
+import kotlinx.android.synthetic.main.activity_hyottoko_face.*
 
 class SecondFaceActivity : AppCompatActivity() {
 
@@ -19,7 +19,7 @@ class SecondFaceActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_second_face)
+        setContentView(R.layout.activity_hyottoko_face)
 
         val actionBar = supportActionBar
 
