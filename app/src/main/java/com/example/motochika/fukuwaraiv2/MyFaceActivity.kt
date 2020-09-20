@@ -7,6 +7,7 @@ import android.graphics.Path
 import android.graphics.PointF
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceContour
@@ -21,6 +22,14 @@ import java.io.IOException
 //ランドマークのポイントはは配列に格納されている
 //FaceDetectorOptions　オブジェクト:　faceDetector の初期設定ができる
 class MyFaceActivity : AppCompatActivity() {
+
+    lateinit var leftEyePos: List<PointF>
+    lateinit var rightEyePos: List<PointF>
+    lateinit var upperLipPos: List<PointF>
+    lateinit var lowerLipPos: List<PointF>
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,13 +78,13 @@ class MyFaceActivity : AppCompatActivity() {
                     //検出された顔に対して
                     for (face in faces) {
                         //左目の座標(x,y)のリストを保持する
-                        val leftEyePos = face.getContour(FaceContour.LEFT_EYE)?.points as List<PointF>
+                         leftEyePos = face.getContour(FaceContour.LEFT_EYE)?.points as List<PointF>
                         //右目の座標(x,y)のリストを保持する
-                        val rightEyePos = face.getContour(FaceContour.RIGHT_EYE)?.points as List<PointF>
+                         rightEyePos = face.getContour(FaceContour.RIGHT_EYE)?.points as List<PointF>
                         //上唇の座標(x,y)のリストを保持する
-                        val upperLipPos = face.getContour(FaceContour.UPPER_LIP_TOP)?.points as List<PointF>
+                         upperLipPos = face.getContour(FaceContour.UPPER_LIP_TOP)?.points as List<PointF>
                         //下唇の座標(x,y)のリストを保持する
-                        val lowerLipPos = face.getContour(FaceContour.LOWER_LIP_BOTTOM)?.points as List<PointF>
+                         lowerLipPos = face.getContour(FaceContour.LOWER_LIP_BOTTOM)?.points as List<PointF>
 
                         //座標に応じてgraphic_overlayにドットを描写するクラスを作成
                         var faceGraphic = FaceContourGraphic(graphic_overlay)
@@ -83,7 +92,14 @@ class MyFaceActivity : AppCompatActivity() {
                         graphic_overlay.add(faceGraphic)
                         //faceに対してドットを更新
                         faceGraphic.updateFace(face)
+
                     }
+                    Log.d("leftEyePos", leftEyePos.toString())
+                    Log.d("rightEyePos", rightEyePos.toString())
+                    Log.d("upperLipPos", upperLipPos.toString())
+                    Log.d("lowerLipPos", lowerLipPos.toString())
+
+
 
 
                 }
@@ -94,6 +110,7 @@ class MyFaceActivity : AppCompatActivity() {
                 }
         }
     }
+
 
     private fun getBitmapFromAsset(context: Context, filePath: String): Bitmap? {
 
