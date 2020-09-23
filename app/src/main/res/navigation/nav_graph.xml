@@ -5,19 +5,34 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/entryFragment">
 
-    <activity
+    <fragment
         android:id="@+id/entryFragment"
         android:name="com.example.motochika.fukuwaraiv2.EntryFragment"
         android:label="fragment_entry"
-        tools:layout="@layout/fragment_entry" />
-    <activity
+        tools:layout="@layout/fragment_entry" >
+        <action
+            android:id="@+id/action_entryFragment_to_firstFaceAFragment"
+            app:destination="@id/firstFaceAFragment" />
+        <action
+            android:id="@+id/action_entryFragment_to_secondFaceFragment"
+            app:destination="@id/secondFaceFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/firstFaceAFragment"
         android:name="com.example.motochika.fukuwaraiv2.OkameFaceFragment"
         android:label="fragment_okame_face"
-        tools:layout="@layout/fragment_okame_face" />
-    <activity
+        tools:layout="@layout/fragment_okame_face" >
+        <action
+            android:id="@+id/action_firstFaceAFragment_to_entryFragment"
+            app:destination="@id/entryFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/secondFaceFragment"
         android:name="com.example.motochika.fukuwaraiv2.HyottokoFaceFragment"
         android:label="fragment_hyottoko_face"
-        tools:layout="@layout/fragment_hyottoko_face"/>
+        tools:layout="@layout/fragment_hyottoko_face">
+        <action
+            android:id="@+id/action_secondFaceFragment_to_entryFragment"
+            app:destination="@id/entryFragment" />
+    </fragment>
 </navigation>

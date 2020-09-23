@@ -3,40 +3,55 @@ package com.example.motochika.fukuwaraiv2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_entry.*
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
+import kotlinx.android.synthetic.main.fragment_entry.view.*
 
-class EntryFragment : AppCompatActivity() {
+class EntryFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_entry)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-        val actionBar = supportActionBar
+        val view = inflater.inflate(R.layout.fragment_entry, container, false)
 
-        actionBar!!.hide()
+        view.entry_okame_button.setOnClickListener {
 
-        entry_okame_button.setOnClickListener {
+            findNavController().navigate(R.id.action_entryFragment_to_firstFaceAFragment)
 
-
-            startActivity(Intent(this,OkameFaceFragment::class.java))
         }
 
-        entry_hyottoko_button.setOnClickListener {
+        view.entry_hyottoko_button.setOnClickListener {
 
-
-            startActivity(Intent(this,HyottokoFaceFragment::class.java))
+            findNavController().navigate(R.id.action_entryFragment_to_secondFaceFragment)
         }
 
-        license.setOnClickListener {
+        return view
+    }
 
-            startActivity(Intent(this, OssLicensesMenuActivity::class.java))
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        test_button.setOnClickListener {
 
-            startActivity(Intent(this, MyFaceActivity::class.java))
-        }
+//
+//        license.setOnClickListener {
+//
+//            startActivity(Intent(this, OssLicensesMenuActivity::class.java))
+//        }
+//
+//        test_button.setOnClickListener {
+//
+//           startActivity(Intent(this, MyFaceActivity::class.java))
+//        }
+
 
     }
 }
