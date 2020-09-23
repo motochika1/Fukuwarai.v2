@@ -10,18 +10,18 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_okame_face.*
 
 
 
-class FirstFaceActivity : AppCompatActivity(){
+class OkameFaceFragment : AppCompatActivity(){
 
     var i = 0
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.fragment_okame_face)
 
         val actionBar = supportActionBar
 

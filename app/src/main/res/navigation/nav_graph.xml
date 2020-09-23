@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/entryFragment">
+
+    <activity
+        android:id="@+id/entryFragment"
+        android:name="com.example.motochika.fukuwaraiv2.EntryFragment"
+        android:label="fragment_entry"
+        tools:layout="@layout/fragment_entry" />
+    <activity
+        android:id="@+id/firstFaceAFragment"
+        android:name="com.example.motochika.fukuwaraiv2.OkameFaceFragment"
+        android:label="fragment_okame_face"
+        tools:layout="@layout/fragment_okame_face" />
+    <activity
+        android:id="@+id/secondFaceFragment"
+        android:name="com.example.motochika.fukuwaraiv2.HyottokoFaceFragment"
+        android:label="fragment_hyottoko_face"
+        tools:layout="@layout/fragment_hyottoko_face"/>
+</navigation>

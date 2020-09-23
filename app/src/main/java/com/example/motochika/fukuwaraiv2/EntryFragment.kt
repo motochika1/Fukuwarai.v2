@@ -3,14 +3,14 @@ package com.example.motochika.fukuwaraiv2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_entry.*
+import kotlinx.android.synthetic.main.fragment_entry.*
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 
-class EntryActivity : AppCompatActivity() {
+class EntryFragment : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_entry)
+        setContentView(R.layout.fragment_entry)
 
         val actionBar = supportActionBar
 
@@ -19,13 +19,13 @@ class EntryActivity : AppCompatActivity() {
         entry_okame_button.setOnClickListener {
 
 
-            startActivity(Intent(this,FirstFaceActivity::class.java))
+            startActivity(Intent(this,OkameFaceFragment::class.java))
         }
 
         entry_hyottoko_button.setOnClickListener {
 
 
-            startActivity(Intent(this,SecondFaceActivity::class.java))
+            startActivity(Intent(this,HyottokoFaceFragment::class.java))
         }
 
         license.setOnClickListener {

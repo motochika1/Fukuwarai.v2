@@ -10,16 +10,16 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.RequiresApi
-import kotlinx.android.synthetic.main.activity_hyottoko_face.*
+import kotlinx.android.synthetic.main.fragment_hyottoko_face.*
 
-class SecondFaceActivity : AppCompatActivity() {
+class HyottokoFaceFragment : AppCompatActivity() {
 
     var i = 0
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hyottoko_face)
+        setContentView(R.layout.fragment_hyottoko_face)
 
         val actionBar = supportActionBar
 
