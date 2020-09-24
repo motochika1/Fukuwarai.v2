@@ -24,7 +24,9 @@
         tools:layout="@layout/fragment_okame_face" >
         <action
             android:id="@+id/action_firstFaceAFragment_to_entryFragment"
-            app:destination="@id/entryFragment" />
+            app:destination="@id/entryFragment"
+            app:popUpTo="@id/entryFragment"
+            app:popUpToInclusive="false"/>
     </fragment>
     <fragment
         android:id="@+id/secondFaceFragment"
@@ -33,6 +35,8 @@
         tools:layout="@layout/fragment_hyottoko_face">
         <action
             android:id="@+id/action_secondFaceFragment_to_entryFragment"
-            app:destination="@id/entryFragment" />
+            app:destination="@id/entryFragment"
+            app:popUpTo="@id/entryFragment"
+            app:popUpToInclusive="false"/>
     </fragment>
 </navigation>

@@ -11,12 +11,19 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.*
 
 @RequiresApi(Build.VERSION_CODES.O)
 class HyottokoFaceFragment : Fragment() {
+
+
+
+    private lateinit var viewModel: HyottokoFaceFragmentViewModel
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -26,61 +33,11 @@ class HyottokoFaceFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view  = inflater.inflate(R.layout.fragment_hyottoko_face, container, false)
-        return view
-    }
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        var i = 0
+        val view = inflater.inflate(R.layout.fragment_hyottoko_face, container, false)
         val vibrator = activity?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         val vibrationEffect = VibrationEffect.createOneShot(1000, 1)
 
-        var listener = View.OnTouchListener(function = { view, motionEvent ->
-
-
-
-            if (motionEvent.action == MotionEvent.ACTION_MOVE) {
-
-
-
-                view.x = motionEvent.rawX - view.width/2
-                view.y = motionEvent.rawY - view.height/2
-
-
-
-                Log.d("MainActivity","touched")
-
-            }
-            if (motionEvent.action == MotionEvent.ACTION_DOWN) {
-
-                vibrator.vibrate(vibrationEffect)
-
-                i+=10
-
-                view.rotation =i.toFloat()
-
-                Log.d("MainActivity","rotated")
-
-
-            }
-
-            if (motionEvent.action == MotionEvent.ACTION_UP) {
-
-                vibrator.cancel()
-
-                Log.d("MainActivity","canceled")
-
-
-            }
-
-
-
-            true
-
-        })
+        viewModel = ViewModelProvider(this).get(HyottokoFaceFragmentViewModel::class.java)
 
         requireActivity().window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
 
@@ -99,15 +56,15 @@ class HyottokoFaceFragment : Fragment() {
 
                 //画像を透明にしている
                 rightEye_image.alpha = 0.0.toFloat()
-                leftEye_image.alpha =  0.0.toFloat()
+                leftEye_image.alpha = 0.0.toFloat()
                 nose_image.alpha = 0.0.toFloat()
-                mouth_image.alpha =  0.0.toFloat()
+                mouth_image.alpha = 0.0.toFloat()
 
 
-                rightEye_image.setOnTouchListener(listener)
-                leftEye_image.setOnTouchListener(listener)
-                nose_image.setOnTouchListener(listener)
-                mouth_image.setOnTouchListener(listener)
+                rightEye_image.setOnTouchListener(viewModel.listener)
+                leftEye_image.setOnTouchListener(viewModel.listener)
+                nose_image.setOnTouchListener(viewModel.listener)
+                mouth_image.setOnTouchListener(viewModel.listener)
 
             }
 
@@ -115,9 +72,9 @@ class HyottokoFaceFragment : Fragment() {
 
                 //元の透明度に戻している
                 rightEye_image.alpha = 1.0.toFloat()
-                leftEye_image.alpha =  1.0.toFloat()
+                leftEye_image.alpha = 1.0.toFloat()
                 nose_image.alpha = 1.0.toFloat()
-                mouth_image.alpha =  1.0.toFloat()
+                mouth_image.alpha = 1.0.toFloat()
 
                 rightEye_image.setOnTouchListener(null)
                 leftEye_image.setOnTouchListener(null)
@@ -135,7 +92,7 @@ class HyottokoFaceFragment : Fragment() {
                 leftEye_image.y = leftEyeY
                 nose_image.x = noseX
                 nose_image.y = noseY
-                mouth_image.x =  mouthX
+                mouth_image.x = mouthX
                 mouth_image.y = mouthY
 
             }
@@ -149,11 +106,11 @@ class HyottokoFaceFragment : Fragment() {
                 leftEye_image.y = leftEyeY
                 nose_image.x = noseX
                 nose_image.y = noseY
-                mouth_image.x =  mouthX
+                mouth_image.x = mouthX
                 mouth_image.y = mouthY
 
 
-                i = 0
+                viewModel.i = 0
 
                 rightEye_image.rotation = 0.toFloat()
                 leftEye_image.rotation = 0.toFloat()
@@ -163,5 +120,8 @@ class HyottokoFaceFragment : Fragment() {
 
             }
         }
+        return view
     }
+
 }
+
