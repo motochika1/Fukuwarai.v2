@@ -6,51 +6,65 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_hyottoko_face.*
 import kotlinx.android.synthetic.main.fragment_okame_face.*
+import kotlinx.android.synthetic.main.fragment_okame_face.back_button
+import kotlinx.android.synthetic.main.fragment_okame_face.changeFace_button
+import kotlinx.android.synthetic.main.fragment_okame_face.defo_button
+import kotlinx.android.synthetic.main.fragment_okame_face.leftEye_image
+import kotlinx.android.synthetic.main.fragment_okame_face.mouth_image
+import kotlinx.android.synthetic.main.fragment_okame_face.nose_image
+import kotlinx.android.synthetic.main.fragment_okame_face.open_button
+import kotlinx.android.synthetic.main.fragment_okame_face.rightEye_image
 
 
-
-class OkameFaceFragment : AppCompatActivity(){
-
-    var i = 0
+class OkameFaceFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_okame_face)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-        val actionBar = supportActionBar
+        val view  = inflater.inflate(R.layout.fragment_okame_face, container, false)
+        return view
+    }
 
-        val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        val vibrationEffect = VibrationEffect.createOneShot(1000, -1)
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        var i = 0
+        val vibrator = activity?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        val vibrationEffect = VibrationEffect.createOneShot(1000, 1)
+
+        var listener = View.OnTouchListener(function = { view, motionEvent ->
 
 
 
-        actionBar!!.hide()
-
-
-        var listener = View.OnTouchListener(function = {view, motionEvent ->
-
-
-            //ドラッグして画像を動かす
             if (motionEvent.action == MotionEvent.ACTION_MOVE) {
+
 
 
                 view.x = motionEvent.rawX - view.width/2
                 view.y = motionEvent.rawY - view.height/2
 
 
+
                 Log.d("MainActivity","touched")
 
             }
-
-            //タップして画像を回転
             if (motionEvent.action == MotionEvent.ACTION_DOWN) {
-
 
                 vibrator.vibrate(vibrationEffect)
 
@@ -73,11 +87,12 @@ class OkameFaceFragment : AppCompatActivity(){
             }
 
 
+
             true
 
         })
 
-        window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
+        requireActivity().window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
 
             val rightEyeX = rightEye_image.x
             val rightEyeY = rightEye_image.y
@@ -89,13 +104,14 @@ class OkameFaceFragment : AppCompatActivity(){
             val mouthY = mouth_image.y
 
 
+
             changeFace_button.setOnClickListener {
 
-                //画像を透明にする
+                //画像を透明にしている
                 rightEye_image.alpha = 0.0.toFloat()
-                leftEye_image.alpha = 0.0.toFloat()
+                leftEye_image.alpha =  0.0.toFloat()
                 nose_image.alpha = 0.0.toFloat()
-                mouth_image.alpha = 0.0.toFloat()
+                mouth_image.alpha =  0.0.toFloat()
 
 
                 rightEye_image.setOnTouchListener(listener)
@@ -107,11 +123,11 @@ class OkameFaceFragment : AppCompatActivity(){
 
             open_button.setOnClickListener {
 
-                //元の透明度に戻す
+                //元の透明度に戻している
                 rightEye_image.alpha = 1.0.toFloat()
-                leftEye_image.alpha = 1.0.toFloat()
+                leftEye_image.alpha =  1.0.toFloat()
                 nose_image.alpha = 1.0.toFloat()
-                mouth_image.alpha = 1.0.toFloat()
+                mouth_image.alpha =  1.0.toFloat()
 
                 rightEye_image.setOnTouchListener(null)
                 leftEye_image.setOnTouchListener(null)
@@ -129,9 +145,8 @@ class OkameFaceFragment : AppCompatActivity(){
                 leftEye_image.y = leftEyeY
                 nose_image.x = noseX
                 nose_image.y = noseY
-                mouth_image.x = mouthX
+                mouth_image.x =  mouthX
                 mouth_image.y = mouthY
-
 
             }
 
@@ -144,8 +159,9 @@ class OkameFaceFragment : AppCompatActivity(){
                 leftEye_image.y = leftEyeY
                 nose_image.x = noseX
                 nose_image.y = noseY
-                mouth_image.x = mouthX
+                mouth_image.x =  mouthX
                 mouth_image.y = mouthY
+
 
                 i = 0
 
@@ -157,9 +173,6 @@ class OkameFaceFragment : AppCompatActivity(){
 
             }
         }
-
     }
-
-
-
 }
+

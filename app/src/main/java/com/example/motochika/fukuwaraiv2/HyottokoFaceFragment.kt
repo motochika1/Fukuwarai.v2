@@ -7,26 +7,36 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.*
 
-class HyottokoFaceFragment : AppCompatActivity() {
+@RequiresApi(Build.VERSION_CODES.O)
+class HyottokoFaceFragment : Fragment() {
 
-    var i = 0
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_hyottoko_face)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
-        val actionBar = supportActionBar
+        val view  = inflater.inflate(R.layout.fragment_hyottoko_face, container, false)
+        return view
+    }
 
-        val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        var i = 0
+        val vibrator = activity?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         val vibrationEffect = VibrationEffect.createOneShot(1000, 1)
-
-        actionBar!!.hide()
 
         var listener = View.OnTouchListener(function = { view, motionEvent ->
 
@@ -72,7 +82,7 @@ class HyottokoFaceFragment : AppCompatActivity() {
 
         })
 
-        window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
+        requireActivity().window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
 
             val rightEyeX = rightEye_image.x
             val rightEyeY = rightEye_image.y
@@ -85,36 +95,36 @@ class HyottokoFaceFragment : AppCompatActivity() {
 
 
 
-        changeFace_button.setOnClickListener {
+            changeFace_button.setOnClickListener {
 
-            //画像を透明にしている
-            rightEye_image.alpha = 0.0.toFloat()
-            leftEye_image.alpha =  0.0.toFloat()
-            nose_image.alpha = 0.0.toFloat()
-            mouth_image.alpha =  0.0.toFloat()
+                //画像を透明にしている
+                rightEye_image.alpha = 0.0.toFloat()
+                leftEye_image.alpha =  0.0.toFloat()
+                nose_image.alpha = 0.0.toFloat()
+                mouth_image.alpha =  0.0.toFloat()
 
 
-            rightEye_image.setOnTouchListener(listener)
-            leftEye_image.setOnTouchListener(listener)
-            nose_image.setOnTouchListener(listener)
-            mouth_image.setOnTouchListener(listener)
+                rightEye_image.setOnTouchListener(listener)
+                leftEye_image.setOnTouchListener(listener)
+                nose_image.setOnTouchListener(listener)
+                mouth_image.setOnTouchListener(listener)
 
-        }
+            }
 
-        open_button.setOnClickListener {
+            open_button.setOnClickListener {
 
-            //元の透明度に戻している
-            rightEye_image.alpha = 1.0.toFloat()
-            leftEye_image.alpha =  1.0.toFloat()
-            nose_image.alpha = 1.0.toFloat()
-            mouth_image.alpha =  1.0.toFloat()
+                //元の透明度に戻している
+                rightEye_image.alpha = 1.0.toFloat()
+                leftEye_image.alpha =  1.0.toFloat()
+                nose_image.alpha = 1.0.toFloat()
+                mouth_image.alpha =  1.0.toFloat()
 
-            rightEye_image.setOnTouchListener(null)
-            leftEye_image.setOnTouchListener(null)
-            nose_image.setOnTouchListener(null)
-            mouth_image.setOnTouchListener(null)
+                rightEye_image.setOnTouchListener(null)
+                leftEye_image.setOnTouchListener(null)
+                nose_image.setOnTouchListener(null)
+                mouth_image.setOnTouchListener(null)
 
-        }
+            }
 
             defo_button.setOnClickListener {
 
@@ -152,9 +162,6 @@ class HyottokoFaceFragment : AppCompatActivity() {
 
 
             }
-
         }
-
-
     }
 }

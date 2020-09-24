@@ -3,7 +3,9 @@ package com.example.motochika.fukuwaraiv2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.navigation.NavigationView
@@ -16,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         val actionBar = supportActionBar
 
         actionBar!!.hide()
-
-
     }
+
 }
+
