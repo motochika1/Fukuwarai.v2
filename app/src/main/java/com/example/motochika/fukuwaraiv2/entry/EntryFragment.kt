@@ -1,16 +1,12 @@
-package com.example.motochika.fukuwaraiv2
+package com.example.motochika.fukuwaraiv2.entry
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_entry.*
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
+import com.example.motochika.fukuwaraiv2.R
 import kotlinx.android.synthetic.main.fragment_entry.view.*
 
 class EntryFragment : Fragment() {

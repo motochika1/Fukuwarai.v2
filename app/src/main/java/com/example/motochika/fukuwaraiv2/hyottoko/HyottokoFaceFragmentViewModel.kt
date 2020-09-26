@@ -1,4 +1,4 @@
-package com.example.motochika.fukuwaraiv2
+package com.example.motochika.fukuwaraiv2.hyottoko
 
 import android.content.Context
 import android.os.VibrationEffect

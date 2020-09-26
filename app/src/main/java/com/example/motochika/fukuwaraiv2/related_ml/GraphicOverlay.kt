@@ -1,11 +1,11 @@
-package com.example.motochika.fukuwaraiv2
+package com.example.motochika.fukuwaraiv2.related_ml
 
 import android.content.Context
 import android.graphics.Canvas
 import android.hardware.camera2.CameraCharacteristics
 import android.util.AttributeSet
 import android.view.View
-import com.example.motochika.fukuwaraiv2.GraphicOverlay.Graphic
+import com.example.motochika.fukuwaraiv2.related_ml.GraphicOverlay.Graphic
 import java.util.*
 
 // Copyright 2018 Google LLC

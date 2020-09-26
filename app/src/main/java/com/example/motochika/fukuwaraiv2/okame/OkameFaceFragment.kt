@@ -1,4 +1,4 @@
-package com.example.motochika.fukuwaraiv2
+package com.example.motochika.fukuwaraiv2.okame
 
 import android.content.Context
 import android.os.Build
@@ -10,13 +10,9 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_hyottoko_face.*
-import kotlinx.android.synthetic.main.fragment_okame_face.*
+import com.example.motochika.fukuwaraiv2.R
 import kotlinx.android.synthetic.main.fragment_okame_face.back_button
 import kotlinx.android.synthetic.main.fragment_okame_face.changeFace_button
 import kotlinx.android.synthetic.main.fragment_okame_face.defo_button
