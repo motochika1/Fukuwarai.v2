@@ -21,9 +21,6 @@ class HyottokoFaceFragment : Fragment() {
 
 
 
-    private lateinit var viewModel: HyottokoFaceFragmentViewModel
-
-
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +31,7 @@ class HyottokoFaceFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_hyottoko_face, container, false)
         val vibrator = activity?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         val vibrationEffect = VibrationEffect.createOneShot(1000, 1)
+
         var i = 0
 
         var listener = View.OnTouchListener(function = { view, motionEvent ->
@@ -52,7 +50,7 @@ class HyottokoFaceFragment : Fragment() {
             }
             if (motionEvent.action == MotionEvent.ACTION_DOWN) {
 
-                //vibrator.vibrate(vibrationEffect)
+                vibrator.vibrate(vibrationEffect)
 
                 i += 10
 
@@ -65,7 +63,7 @@ class HyottokoFaceFragment : Fragment() {
 
             if (motionEvent.action == MotionEvent.ACTION_UP) {
 
-                //vibrator.cancel()
+                vibrator.cancel()
 
                 Log.d("MainActivity", "canceled")
 
@@ -78,8 +76,6 @@ class HyottokoFaceFragment : Fragment() {
 
         })
 
-
-        viewModel = ViewModelProvider(this).get(HyottokoFaceFragmentViewModel::class.java)
 
 
         requireActivity().window.decorView.viewTreeObserver.addOnGlobalLayoutListener {

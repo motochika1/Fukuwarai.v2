@@ -21,11 +21,9 @@ import kotlinx.android.synthetic.main.fragment_okame_face.mouth_image
 import kotlinx.android.synthetic.main.fragment_okame_face.nose_image
 import kotlinx.android.synthetic.main.fragment_okame_face.open_button
 import kotlinx.android.synthetic.main.fragment_okame_face.rightEye_image
-import kotlinx.android.synthetic.main.fragment_okame_face.view.*
 
 
 class OkameFaceFragment : Fragment() {
-
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -34,8 +32,13 @@ class OkameFaceFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.fragment_okame_face, container, false)
-        val binding = Result
+        val view  = inflater.inflate(R.layout.fragment_okame_face, container, false)
+        return view
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         var i = 0
         val vibrator = activity?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -44,26 +47,28 @@ class OkameFaceFragment : Fragment() {
         var listener = View.OnTouchListener(function = { view, motionEvent ->
 
 
+
             if (motionEvent.action == MotionEvent.ACTION_MOVE) {
 
 
-                view.x = motionEvent.rawX - view.width / 2
-                view.y = motionEvent.rawY - view.height / 2
+
+                view.x = motionEvent.rawX - view.width/2
+                view.y = motionEvent.rawY - view.height/2
 
 
 
-                Log.d("MainActivity", "touched")
+                Log.d("MainActivity","touched")
 
             }
             if (motionEvent.action == MotionEvent.ACTION_DOWN) {
 
                 vibrator.vibrate(vibrationEffect)
 
-                i += 10
+                i+=10
 
-                view.rotation = i.toFloat()
+                view.rotation =i.toFloat()
 
-                Log.d("MainActivity", "rotated")
+                Log.d("MainActivity","rotated")
 
 
             }
@@ -72,11 +77,10 @@ class OkameFaceFragment : Fragment() {
 
                 vibrator.cancel()
 
-                Log.d("MainActivity", "canceled")
+                Log.d("MainActivity","canceled")
 
 
             }
-
 
 
 
@@ -96,13 +100,14 @@ class OkameFaceFragment : Fragment() {
             val mouthY = mouth_image.y
 
 
+
             changeFace_button.setOnClickListener {
 
                 //画像を透明にしている
                 rightEye_image.alpha = 0.0.toFloat()
-                leftEye_image.alpha = 0.0.toFloat()
+                leftEye_image.alpha =  0.0.toFloat()
                 nose_image.alpha = 0.0.toFloat()
-                mouth_image.alpha = 0.0.toFloat()
+                mouth_image.alpha =  0.0.toFloat()
 
 
                 rightEye_image.setOnTouchListener(listener)
@@ -116,9 +121,9 @@ class OkameFaceFragment : Fragment() {
 
                 //元の透明度に戻している
                 rightEye_image.alpha = 1.0.toFloat()
-                leftEye_image.alpha = 1.0.toFloat()
+                leftEye_image.alpha =  1.0.toFloat()
                 nose_image.alpha = 1.0.toFloat()
-                mouth_image.alpha = 1.0.toFloat()
+                mouth_image.alpha =  1.0.toFloat()
 
                 rightEye_image.setOnTouchListener(null)
                 leftEye_image.setOnTouchListener(null)
@@ -136,7 +141,7 @@ class OkameFaceFragment : Fragment() {
                 leftEye_image.y = leftEyeY
                 nose_image.x = noseX
                 nose_image.y = noseY
-                mouth_image.x = mouthX
+                mouth_image.x =  mouthX
                 mouth_image.y = mouthY
 
             }
@@ -150,7 +155,7 @@ class OkameFaceFragment : Fragment() {
                 leftEye_image.y = leftEyeY
                 nose_image.x = noseX
                 nose_image.y = noseY
-                mouth_image.x = mouthX
+                mouth_image.x =  mouthX
                 mouth_image.y = mouthY
 
 
@@ -164,14 +169,6 @@ class OkameFaceFragment : Fragment() {
 
             }
         }
-
-        return view
-    }
-
-    override fun onStop() {
-        super.onStop()
-
     }
 }
-
 
