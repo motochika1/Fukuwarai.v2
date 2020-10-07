@@ -1,4 +1,4 @@
-package com.example.motochika.fukuwaraiv2
+package com.example.motochika.fukuwaraiv2.related_ml
 
 import android.content.Context
 import android.net.Uri

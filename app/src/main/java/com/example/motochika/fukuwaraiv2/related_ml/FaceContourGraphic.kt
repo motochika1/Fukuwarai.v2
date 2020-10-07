@@ -1,9 +1,9 @@
-package com.example.motochika.fukuwaraiv2
+package com.example.motochika.fukuwaraiv2.related_ml
 
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import com.example.motochika.fukuwaraiv2.GraphicOverlay.Graphic
+import com.example.motochika.fukuwaraiv2.related_ml.GraphicOverlay.Graphic
 import com.google.mlkit.vision.face.Face
 import com.google.mlkit.vision.face.FaceLandmark
 

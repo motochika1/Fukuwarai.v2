@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/entryFragment">
+
+    <fragment
+        android:id="@+id/entryFragment"
+        android:name="com.example.motochika.fukuwaraiv2.entry.EntryFragment"
+        android:label="fragment_entry"
+        tools:layout="@layout/fragment_entry" >
+        <action
+            android:id="@+id/action_entryFragment_to_firstFaceAFragment"
+            app:destination="@id/firstFaceAFragment" />
+        <action
+            android:id="@+id/action_entryFragment_to_secondFaceFragment"
+            app:destination="@id/secondFaceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstFaceAFragment"
+        android:name="com.example.motochika.fukuwaraiv2.okame.OkameFaceFragment"
+        android:label="fragment_okame_face"
+        tools:layout="@layout/fragment_okame_face" >
+        <action
+            android:id="@+id/action_firstFaceAFragment_to_entryFragment"
+            app:destination="@id/entryFragment"
+            app:popUpTo="@id/entryFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+    <fragment
+        android:id="@+id/secondFaceFragment"
+        android:name="com.example.motochika.fukuwaraiv2.hyottoko.HyottokoFaceFragment"
+        android:label="fragment_hyottoko_face"
+        tools:layout="@layout/fragment_hyottoko_face">
+        <action
+            android:id="@+id/action_secondFaceFragment_to_entryFragment"
+            app:destination="@id/entryFragment"
+            app:popUpTo="@id/entryFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+</navigation>
