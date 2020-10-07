@@ -5,6 +5,12 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/entryFragment">
 
+    <action
+        android:id="@+id/action_global_go_main"
+        app:destination="@id/entryFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true"/>
+
     <fragment
         android:id="@+id/entryFragment"
         android:name="com.example.motochika.fukuwaraiv2.entry.EntryFragment"
@@ -21,22 +27,10 @@
         android:id="@+id/firstFaceAFragment"
         android:name="com.example.motochika.fukuwaraiv2.okame.OkameFaceFragment"
         android:label="fragment_okame_face"
-        tools:layout="@layout/fragment_okame_face" >
-        <action
-            android:id="@+id/action_firstFaceAFragment_to_entryFragment"
-            app:destination="@id/entryFragment"
-            app:popUpTo="@id/entryFragment"
-            app:popUpToInclusive="false"/>
-    </fragment>
+        tools:layout="@layout/fragment_okame_face" />
     <fragment
         android:id="@+id/secondFaceFragment"
         android:name="com.example.motochika.fukuwaraiv2.hyottoko.HyottokoFaceFragment"
         android:label="fragment_hyottoko_face"
-        tools:layout="@layout/fragment_hyottoko_face">
-        <action
-            android:id="@+id/action_secondFaceFragment_to_entryFragment"
-            app:destination="@id/entryFragment"
-            app:popUpTo="@id/entryFragment"
-            app:popUpToInclusive="false"/>
-    </fragment>
+        tools:layout="@layout/fragment_hyottoko_face"/>
 </navigation>
