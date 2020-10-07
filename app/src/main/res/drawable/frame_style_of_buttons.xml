@@ -9,14 +9,14 @@
         <shape android:shape="rectangle">
 
             <!-- 角の丸み -->
-            <corners android:radius="8dp" />
+            <corners android:radius="@dimen/buttonRadius" />
 
             <!-- グラデーション -->
             <!-- angle:角度、type:linear(=線形) -->
             <gradient
                 android:angle="90"
-                android:endColor="#21ffd3"
-                android:startColor="#1abc9c"
+                android:endColor="@color/endColor"
+                android:startColor="@color/startColor"
                 android:type="linear" />
 
         </shape>
@@ -28,14 +28,14 @@
         <shape android:shape="rectangle">
 
             <!-- 角の丸み -->
-            <corners android:radius="8dp" />
+            <corners android:radius="@dimen/buttonRadius" />
 
             <!-- グラデーション -->
             <!-- angle:角度、type:linear(=線形) -->
             <gradient
                 android:angle="90"
-                android:endColor="#1abc9c"
-                android:startColor="#21ffd3"
+                android:endColor="@color/endColor"
+                android:startColor="@color/startColor"
                 android:type="linear" />
 
         </shape>

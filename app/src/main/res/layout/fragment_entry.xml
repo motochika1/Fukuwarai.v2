@@ -4,13 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fffacd"
     tools:context=".entry.EntryFragment">
 
-    <ImageView
+    <TextView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="422dp"
-        android:contentDescription="@string/contentDescription"
+        android:text="おもしろ\n 福笑い"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
