@@ -7,21 +7,66 @@
     android:background="#fffacd"
     tools:context=".entry.EntryFragment">
 
-    <TextView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="422dp"
-        android:text="おもしろ\n 福笑い"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.466"
-        app:srcCompat="@drawable/fukuwarai_moji" />
+    <ImageView
+        android:id="@+id/fukuwarai"
+        android:layout_width="100dp"
+        android:layout_height="111dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="32dp"
+        android:alpha="0.7"
+        android:rotation="40"
+        android:src="@drawable/fukuwarai"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/hagoita"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="52dp"
+        android:alpha="0.7"
+        android:rotation="30"
+        android:src="@drawable/syougatsu_hagoita"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/kagamimoti"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:alpha="0.7"
+        android:src="@drawable/syougatsu_kagamimochi"
+
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+
+    <ImageView
+        android:id="@+id/wadako"
+        android:layout_width="127dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="16dp"
+        android:alpha="0.7"
+        android:rotation="-40"
+        android:src="@drawable/tako_wadako"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/sakura"
+        android:layout_width="441dp"
+        android:layout_height="333dp"
+        android:alpha="0.3"
+        android:src="@drawable/syougatsu_sakura"
+        app:layout_constraintEnd_toEndOf="@id/entry_buttons"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <LinearLayout
+        android:id="@+id/entry_buttons"
         android:layout_width="197dp"
         android:layout_height="150dp"
         android:orientation="vertical"
@@ -66,5 +111,22 @@
         android:text="法的表示"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="422dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="おもしろ\n 福笑い"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fukuwarai_moji" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
