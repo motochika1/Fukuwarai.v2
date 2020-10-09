@@ -119,7 +119,7 @@
         android:layout_margin="16dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="おもしろ\n 福笑い"
+        android:text="おもしろ\n福笑い"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/title_text_size"
         android:textStyle="bold"
