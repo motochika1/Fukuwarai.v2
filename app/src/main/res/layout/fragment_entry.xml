@@ -16,8 +16,8 @@
         android:alpha="0.7"
         android:rotation="40"
         android:src="@drawable/fukuwarai"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/title_text"
+        app:layout_constraintEnd_toEndOf="@+id/title_text" />
 
     <ImageView
         android:id="@+id/hagoita"
@@ -28,8 +28,8 @@
         android:alpha="0.7"
         android:rotation="30"
         android:src="@drawable/syougatsu_hagoita"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="@+id/title_text"
+        app:layout_constraintTop_toTopOf="@+id/title_text" />
 
     <ImageView
         android:id="@+id/kagamimoti"
@@ -40,8 +40,8 @@
         android:alpha="0.7"
         android:src="@drawable/syougatsu_kagamimochi"
 
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="@+id/title_text"
+        app:layout_constraintTop_toTopOf="@+id/title_text" />
 
 
     <ImageView
@@ -53,8 +53,8 @@
         android:alpha="0.7"
         android:rotation="-40"
         android:src="@drawable/tako_wadako"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/title_text"
+        app:layout_constraintStart_toStartOf="@+id/title_text" />
 
     <ImageView
         android:id="@+id/sakura"
@@ -63,7 +63,7 @@
         android:alpha="0.3"
         android:src="@drawable/syougatsu_sakura"
         app:layout_constraintEnd_toEndOf="@id/entry_buttons"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/title_text" />
 
     <LinearLayout
         android:id="@+id/entry_buttons"
@@ -73,7 +73,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/title_text"
         app:layout_constraintVertical_bias="0.292">
 
         <Button
@@ -113,7 +113,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/imageView"
+        android:id="@+id/title_text"
         android:layout_width="match_parent"
         android:layout_height="422dp"
         android:layout_margin="16dp"
