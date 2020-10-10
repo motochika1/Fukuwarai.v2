@@ -13,16 +13,15 @@
 
             <!-- グラデーション -->
             <!-- angle:角度、type:linear(=線形) -->
-            <gradient
-                android:angle="90"
-                android:endColor="@color/endColor"
-                android:startColor="@color/startColor"
-                android:type="linear" />
+
+            <gradient android:angle="90"
+                android:endColor="@color/button_endcolor"
+                android:startColor="@color/colorPrimary"
+                android:type="linear"/>
 
         </shape>
     </item>
 
-    <!-- ボタンが押された状態 -->
     <item android:state_pressed="true">
         <!-- 四角形 -->
         <shape android:shape="rectangle">
@@ -32,11 +31,10 @@
 
             <!-- グラデーション -->
             <!-- angle:角度、type:linear(=線形) -->
-            <gradient
-                android:angle="90"
-                android:endColor="@color/endColor"
-                android:startColor="@color/startColor"
-                android:type="linear" />
+            <gradient android:angle="90"
+                android:endColor="@color/colorPrimary"
+                android:startColor="@color/button_endcolor"
+                android:type="linear"/>
 
         </shape>
     </item>

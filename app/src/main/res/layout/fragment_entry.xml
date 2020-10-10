@@ -68,7 +68,7 @@
     <LinearLayout
         android:id="@+id/entry_buttons"
         android:layout_width="197dp"
-        android:layout_height="150dp"
+        android:layout_height="170dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,35 +80,40 @@
             android:id="@+id/entry_hyottoko_button"
             android:layout_width="match_parent"
             android:layout_height="@dimen/entry_button_height"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/frame_style_of_buttons"
-            android:text="@string/entry_hyottoko_button" />
+            android:text="@string/entry_hyottoko_button"
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/entry_okame_button"
             android:layout_width="match_parent"
             android:layout_height="@dimen/entry_button_height"
             android:background="@drawable/frame_style_of_buttons"
-            android:text="@string/entry_okame_button" />
+            android:text="@string/entry_okame_button"
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/test_button"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/frame_style_of_buttons"
-            android:text="テスト" />
+            android:text="テスト"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <Button
         android:id="@+id/license"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="0dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="64dp"
         android:background="@drawable/frame_style_of_buttons"
         android:text="法的表示"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
