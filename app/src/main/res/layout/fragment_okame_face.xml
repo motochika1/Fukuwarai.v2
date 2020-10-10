@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".okame.OkameFaceFragment">
 
 
     <ImageView
-        android:id="@+id/face"
-        android:layout_width="377dp"
+        android:id="@+id/okame_face"
+        android:layout_width="350dp"
         android:layout_height="630dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="15dp"
@@ -29,10 +30,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="204dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@id/face"
+        app:layout_constraintEnd_toEndOf="@id/okame_face"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@id/face"
-        app:layout_constraintTop_toTopOf="@id/face">
+        app:layout_constraintStart_toStartOf="@id/okame_face"
+        app:layout_constraintTop_toTopOf="@id/okame_face">
 
 
         <ImageView
@@ -54,9 +55,9 @@
         android:id="@+id/rightEye_image"
         android:layout_width="87dp"
         android:layout_height="43dp"
+        android:layout_marginStart="88dp"
         android:layout_marginTop="28dp"
-        android:layout_marginStart="96dp"
-        app:layout_constraintStart_toStartOf="@id/face"
+        app:layout_constraintStart_toStartOf="@id/okame_face"
         app:layout_constraintTop_toBottomOf="@id/eyeBrows"
         app:srcCompat="@drawable/right_eye" />
 
@@ -65,9 +66,9 @@
         android:layout_width="87dp"
         android:layout_height="43dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="96dp"
+        android:layout_marginEnd="88dp"
         android:paddingBottom="1dp"
-        app:layout_constraintEnd_toEndOf="@id/face"
+        app:layout_constraintEnd_toEndOf="@id/okame_face"
         app:layout_constraintTop_toBottomOf="@id/eyeBrows"
         app:srcCompat="@drawable/left_eye" />
 
@@ -76,9 +77,9 @@
         android:layout_width="110dp"
         android:layout_height="89dp"
         app:layout_constraintBottom_toTopOf="@id/mouth_image"
-        app:layout_constraintEnd_toEndOf="@id/face"
+        app:layout_constraintEnd_toEndOf="@id/okame_face"
         app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="@id/face"
+        app:layout_constraintStart_toStartOf="@id/okame_face"
         app:layout_constraintVertical_bias="0.917"
         app:srcCompat="@drawable/nose1" />
 
@@ -87,10 +88,10 @@
         android:layout_width="195dp"
         android:layout_height="111dp"
         android:layout_marginBottom="132dp"
-        app:layout_constraintBottom_toBottomOf="@id/face"
-        app:layout_constraintEnd_toEndOf="@id/face"
+        app:layout_constraintBottom_toBottomOf="@id/okame_face"
+        app:layout_constraintEnd_toEndOf="@id/okame_face"
         app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@id/face"
+        app:layout_constraintStart_toStartOf="@id/okame_face"
         app:srcCompat="@drawable/mouth2" />
 
     <LinearLayout
@@ -114,6 +115,7 @@
             android:text="@string/button_change"
             android:textAllCaps="false"
             android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/open_button"
             app:layout_constraintStart_toStartOf="parent"
@@ -131,6 +133,7 @@
             android:text="@string/button_open"
             android:textAllCaps="false"
             android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.96"
@@ -147,6 +150,7 @@
             android:text="@string/button_start_location"
             android:textAllCaps="false"
             android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -167,6 +171,7 @@
         android:text="@string/button_start"
         android:textAllCaps="false"
         android:textStyle="bold"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.901"
         app:layout_constraintTop_toTopOf="parent"
