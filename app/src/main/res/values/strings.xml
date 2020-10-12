@@ -5,6 +5,6 @@
     <string name="contentDescription">"anyStringValue"</string>
     <string name="button_open">公開</string>
     <string name="button_change">変える</string>
-    <string name="button_start_location">元の位置</string>
-    <string name="button_start">元の状態</string>
+    <string name="button_start_location">おもしろ顔</string>
+    <string name="button_try_again">もう一度</string>
 </resources>

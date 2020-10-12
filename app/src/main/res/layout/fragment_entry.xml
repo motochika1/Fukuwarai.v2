@@ -4,63 +4,139 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".entry.EntryFragment">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="422dp"
-        android:contentDescription="@string/contentDescription"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.466"
-        app:srcCompat="@drawable/fukuwarai_moji" />
+        android:id="@+id/fukuwarai"
+        android:layout_width="100dp"
+        android:layout_height="111dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="32dp"
+        android:alpha="0.7"
+        android:rotation="40"
+        android:src="@drawable/fukuwarai"
+        app:layout_constraintBottom_toBottomOf="@+id/title_text"
+        app:layout_constraintEnd_toEndOf="@+id/title_text" />
+
+    <ImageView
+        android:id="@+id/hagoita"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="52dp"
+        android:alpha="0.7"
+        android:rotation="30"
+        android:src="@drawable/syougatsu_hagoita"
+        app:layout_constraintEnd_toEndOf="@+id/title_text"
+        app:layout_constraintTop_toTopOf="@+id/title_text" />
+
+    <ImageView
+        android:id="@+id/kagamimoti"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:alpha="0.7"
+        android:src="@drawable/syougatsu_kagamimochi"
+
+        app:layout_constraintStart_toStartOf="@+id/title_text"
+        app:layout_constraintTop_toTopOf="@+id/title_text" />
+
+
+    <ImageView
+        android:id="@+id/wadako"
+        android:layout_width="127dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="16dp"
+        android:alpha="0.7"
+        android:rotation="-40"
+        android:src="@drawable/tako_wadako"
+        app:layout_constraintBottom_toBottomOf="@+id/title_text"
+        app:layout_constraintStart_toStartOf="@+id/title_text" />
+
+    <ImageView
+        android:id="@+id/sakura"
+        android:layout_width="430dp"
+        android:layout_height="290dp"
+        android:alpha="0.3"
+        android:src="@drawable/syougatsu_sakura"
+        app:layout_constraintEnd_toEndOf="@id/entry_buttons"
+        app:layout_constraintTop_toBottomOf="@+id/title_text" />
+
 
     <LinearLayout
-        android:layout_width="197dp"
-        android:layout_height="150dp"
+        android:id="@+id/entry_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.292">
+        app:layout_constraintTop_toBottomOf="@+id/title_text"
+        app:layout_constraintVertical_bias="0.0">
 
         <Button
             android:id="@+id/entry_hyottoko_button"
             android:layout_width="match_parent"
             android:layout_height="@dimen/entry_button_height"
-            android:layout_marginBottom="30dp"
+            android:paddingHorizontal="30dp"
             android:background="@drawable/frame_style_of_buttons"
-            android:text="@string/entry_hyottoko_button" />
+            android:text="@string/entry_hyottoko_button"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/entry_okame_button"
             android:layout_width="match_parent"
             android:layout_height="@dimen/entry_button_height"
+            android:layout_marginTop="20dp"
             android:background="@drawable/frame_style_of_buttons"
-            android:text="@string/entry_okame_button" />
+            android:text="@string/entry_okame_button"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/test_button"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/entry_button_height"
             android:layout_marginTop="20dp"
             android:background="@drawable/frame_style_of_buttons"
-            android:text="テスト" />
+            android:text="テスト"
+            android:textColor="@color/white" />
+
+
+        <Button
+            android:id="@+id/license"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/entry_button_height"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/frame_style_of_buttons"
+            android:text="法的表示"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/entry_buttons"
+            app:layout_constraintVertical_bias="0.782" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/license"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="64dp"
-        android:background="@drawable/frame_style_of_buttons"
-        android:text="法的表示"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="おもしろ\n福笑い"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="bold"
+        android:fontFamily="@font/kosugi_maru"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fukuwarai_moji" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".okame.OkameFaceFragment">
 
 
     <ImageView
-        android:id="@+id/face"
-        android:layout_width="377dp"
-        android:layout_height="630dp"
+        android:id="@+id/okame_face"
+        android:layout_width="347dp"
+        android:layout_height="624dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
@@ -20,7 +21,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fukuwarai" />
+        app:srcCompat="@drawable/okameface" />
 
 
     <LinearLayout
@@ -29,10 +30,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="204dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@id/face"
+        app:layout_constraintEnd_toEndOf="@id/okame_face"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@id/face"
-        app:layout_constraintTop_toTopOf="@id/face">
+        app:layout_constraintStart_toStartOf="@id/okame_face"
+        app:layout_constraintTop_toTopOf="@id/okame_face">
 
 
         <ImageView
@@ -54,9 +55,9 @@
         android:id="@+id/rightEye_image"
         android:layout_width="87dp"
         android:layout_height="43dp"
+        android:layout_marginStart="88dp"
         android:layout_marginTop="28dp"
-        android:layout_marginStart="96dp"
-        app:layout_constraintStart_toStartOf="@id/face"
+        app:layout_constraintStart_toStartOf="@id/okame_face"
         app:layout_constraintTop_toBottomOf="@id/eyeBrows"
         app:srcCompat="@drawable/right_eye" />
 
@@ -65,9 +66,9 @@
         android:layout_width="87dp"
         android:layout_height="43dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="96dp"
+        android:layout_marginEnd="88dp"
         android:paddingBottom="1dp"
-        app:layout_constraintEnd_toEndOf="@id/face"
+        app:layout_constraintEnd_toEndOf="@id/okame_face"
         app:layout_constraintTop_toBottomOf="@id/eyeBrows"
         app:srcCompat="@drawable/left_eye" />
 
@@ -76,9 +77,9 @@
         android:layout_width="110dp"
         android:layout_height="89dp"
         app:layout_constraintBottom_toTopOf="@id/mouth_image"
-        app:layout_constraintEnd_toEndOf="@id/face"
+        app:layout_constraintEnd_toEndOf="@id/okame_face"
         app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="@id/face"
+        app:layout_constraintStart_toStartOf="@id/okame_face"
         app:layout_constraintVertical_bias="0.917"
         app:srcCompat="@drawable/nose1" />
 
@@ -87,32 +88,32 @@
         android:layout_width="195dp"
         android:layout_height="111dp"
         android:layout_marginBottom="132dp"
-        app:layout_constraintBottom_toBottomOf="@id/face"
-        app:layout_constraintEnd_toEndOf="@id/face"
+        app:layout_constraintBottom_toBottomOf="@id/okame_face"
+        app:layout_constraintEnd_toEndOf="@id/okame_face"
         app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@id/face"
+        app:layout_constraintStart_toStartOf="@id/okame_face"
         app:srcCompat="@drawable/mouth2" />
 
     <LinearLayout
         android:id="@+id/buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_width="343dp"
+        android:layout_height="82dp"
+        android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/changeFace_button"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="80dp"
             android:layout_marginStart="40dp"
             android:layout_marginLeft="40dp"
             android:layout_weight="1"
-            android:background="@drawable/frame_style_of_buttons"
+            android:background="@drawable/frame_style_of_play_button"
             android:text="@string/button_change"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/open_button"
@@ -123,13 +124,14 @@
         <Button
             android:id="@+id/open_button"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="80dp"
             android:layout_marginStart="@dimen/button_margin_side"
             android:layout_marginEnd="@dimen/button_margin_side"
             android:layout_weight="1"
-            android:background="@drawable/frame_style_of_buttons"
+            android:background="@drawable/frame_style_of_play_button"
             android:text="@string/button_open"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -139,13 +141,14 @@
         <Button
             android:id="@+id/defo_button"
             android:layout_width="80dp"
-            android:layout_height="40dp"
+            android:layout_height="80dp"
             android:layout_marginEnd="40dp"
             android:layout_marginRight="40dp"
             android:layout_weight="1"
-            android:background="@drawable/frame_style_of_buttons"
+            android:background="@drawable/frame_style_of_play_button"
             android:text="@string/button_start_location"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -158,15 +161,16 @@
 
     <Button
         android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginTop="45dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/frame_style_of_back_button"
-        android:text="@string/button_start"
+        android:text="@string/button_try_again"
         android:textAllCaps="false"
         android:textStyle="bold"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.901"
         app:layout_constraintTop_toTopOf="parent"

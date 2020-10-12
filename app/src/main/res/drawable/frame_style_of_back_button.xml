@@ -6,8 +6,8 @@
 
     <!-- サイズを指定 -->
     <size
-        android:width="50dp"
-        android:height="50dp"/>
+        android:width="40dp"
+        android:height="40dp"/>
 
     <!-- 背景色 -->
     <solid android:color="#e67e22" />

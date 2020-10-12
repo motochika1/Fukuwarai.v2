@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-
     <!-- ボタンが押されていない状態 -->
     <item android:state_pressed="false">
         <!-- 四角形 -->
         <shape android:shape="rectangle">
 
             <!-- 角の丸み -->
-            <corners android:radius="@dimen/buttonRadius" />
+            <corners android:radius="50dp" />
 
             <!-- グラデーション -->
             <!-- angle:角度、type:linear(=線形) -->
@@ -27,7 +25,7 @@
         <shape android:shape="rectangle">
 
             <!-- 角の丸み -->
-            <corners android:radius="@dimen/buttonRadius" />
+            <corners android:radius="50dp" />
 
             <!-- グラデーション -->
             <!-- angle:角度、type:linear(=線形) -->
