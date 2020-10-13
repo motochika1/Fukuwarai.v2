@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"> おもしろ福笑い</string>
+    <string name="app_name"> おもしろ\n福笑い</string>
     <string name="entry_hyottoko_button">ひょっとこで始める</string>
     <string name="entry_okame_button">オカメで始める</string>
     <string name="contentDescription">"anyStringValue"</string>
