@@ -19,6 +19,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sample" />
 
+    <TextView
+        android:id="@+id/howTo_play_text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/howTo_play_text_1"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/back_button_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
     <Button
         android:id="@+id/back_button_1"
         android:layout_width="wrap_content"

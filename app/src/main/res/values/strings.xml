@@ -12,4 +12,7 @@
     <string name="go_next">次へ</string>
     <string name="go_back_title">タイトルに戻る</string>
     <string name="go_back">前に戻る</string>
+    <string name="howTo_play_text_1">「変える」ボタンを押すと\n目、鼻、口が見えなくなります</string>
+    <string name="howTo_play_text_2">顔のパーツが見えなくなったら\n好きなところを適当にドラッグしたり\nタップしたりしてください\n＊バイブレーションが鳴ります</string>
+    <string name="howTo_play_text_3">最後に公開ボタンを押すと\n面白い顔がみられます\n\n「おもしろ顔」ボタンは押してみてのお楽しみ</string>
 </resources>
