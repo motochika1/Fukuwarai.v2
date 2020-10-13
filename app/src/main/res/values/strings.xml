@@ -3,8 +3,10 @@
     <string name="entry_hyottoko_button">ひょっとこで始める</string>
     <string name="entry_okame_button">オカメで始める</string>
     <string name="contentDescription">"anyStringValue"</string>
-    <string name="button_open">公開</string>
+    <string name="button_open">見る</string>
     <string name="button_change">変える</string>
     <string name="button_start_location">おもしろ顔</string>
     <string name="button_try_again">もう一度</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
