@@ -11,7 +11,7 @@ apply plugin: "androidx.navigation.safeargs.kotlin"
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "com.example.motochika.fukuwaraiv2"
+        applicationId "com.release.motochika.fukuwaraiv2"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1

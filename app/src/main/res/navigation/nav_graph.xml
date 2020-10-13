@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/entryFragment"
-        android:name="com.example.motochika.fukuwaraiv2.entry.EntryFragment"
+        android:name="com.release.motochika.fukuwaraiv2.entry.EntryFragment"
         android:label="fragment_entry"
         tools:layout="@layout/fragment_entry" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/firstFaceAFragment"
-        android:name="com.example.motochika.fukuwaraiv2.okame.OkameFaceFragment"
+        android:name="com.release.motochika.fukuwaraiv2.okame.OkameFaceFragment"
         android:label="fragment_okame_face"
         tools:layout="@layout/fragment_okame_face" >
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondFaceFragment"
-        android:name="com.example.motochika.fukuwaraiv2.hyottoko.HyottokoFaceFragment"
+        android:name="com.release.motochika.fukuwaraiv2.hyottoko.HyottokoFaceFragment"
         android:label="fragment_hyottoko_face"
         tools:layout="@layout/fragment_hyottoko_face">
         <action
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/howToPlayFragment"
-        android:name="com.example.motochika.fukuwaraiv2.how.HowToPlayFragment"
+        android:name="com.release.motochika.fukuwaraiv2.how.HowToPlayFragment"
         android:label="fragment_how_to_play"
         tools:layout="@layout/fragment_how_to_play_1" >
         <action
@@ -56,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/howToPlay2Fragment"
-        android:name="com.example.motochika.fukuwaraiv2.how.HowToPlay2Fragment"
+        android:name="com.release.motochika.fukuwaraiv2.how.HowToPlay2Fragment"
         android:label="HowToPlay2Fragment" >
         <action
             android:id="@+id/action_howToPlay2Fragment_to_howToPlay3Fragment"
@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/howToPlay3Fragment"
-        android:name="com.example.motochika.fukuwaraiv2.how.HowToPlay3Fragment"
+        android:name="com.release.motochika.fukuwaraiv2.how.HowToPlay3Fragment"
         android:label="HowToPlay3Fragment" >
         <action
             android:id="@+id/action_howToPlay3Fragment_to_entryFragment"

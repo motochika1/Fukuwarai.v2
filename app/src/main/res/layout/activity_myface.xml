@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.559" />
 
-    <com.example.motochika.fukuwaraiv2.related_ml.GraphicOverlay
+    <com.release.motochika.fukuwaraiv2.related_ml.GraphicOverlay
         android:id="@+id/graphic_overlay"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
