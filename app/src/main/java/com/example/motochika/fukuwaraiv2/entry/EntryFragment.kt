@@ -1,5 +1,6 @@
 package com.example.motochika.fukuwaraiv2.entry
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.motochika.fukuwaraiv2.R
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
+import kotlinx.android.synthetic.main.fragment_entry.*
 import kotlinx.android.synthetic.main.fragment_entry.view.*
 
 class EntryFragment : Fragment() {
@@ -37,17 +40,11 @@ class EntryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-//
-//        license.setOnClickListener {
-//
-//            startActivity(Intent(this, OssLicensesMenuActivity::class.java))
-//        }
-//
-//        test_button.setOnClickListener {
-//
-//           startActivity(Intent(this, MyFaceActivity::class.java))
-//        }
 
+        license.setOnClickListener {
+
+            startActivity(Intent(activity, OssLicensesMenuActivity::class.java))
+        }
 
     }
 }
