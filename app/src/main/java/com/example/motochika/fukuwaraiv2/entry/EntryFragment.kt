@@ -33,6 +33,11 @@ class EntryFragment : Fragment() {
             findNavController().navigate(R.id.action_entryFragment_to_secondFaceFragment)
         }
 
+        view.howTo_play_button.setOnClickListener {
+
+            findNavController().navigate(R.id.action_entryFragment_to_howToPlayFragment)
+        }
+
         return view
     }
 
