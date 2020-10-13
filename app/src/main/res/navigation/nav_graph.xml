@@ -48,9 +48,32 @@
         android:label="fragment_how_to_play"
         tools:layout="@layout/fragment_how_to_play_1" >
         <action
-            android:id="@+id/action_howToPlayFragment_to_entryFragment"
-            app:destination="@id/entryFragment"
-            app:popUpTo="@id/entryFragment"
-            app:popUpToInclusive="false"/>
+            android:id="@+id/action_howToPlayFragment_to_howToPlay2Fragment"
+            app:destination="@id/howToPlay2Fragment" />
+        <action
+            android:id="@+id/action_howToPlayFragment_to_entryFragment2"
+            app:destination="@id/entryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/howToPlay2Fragment"
+        android:name="com.example.motochika.fukuwaraiv2.how.HowToPlay2Fragment"
+        android:label="HowToPlay2Fragment" >
+        <action
+            android:id="@+id/action_howToPlay2Fragment_to_howToPlay3Fragment"
+            app:destination="@id/howToPlay3Fragment" />
+        <action
+            android:id="@+id/action_howToPlay2Fragment_to_howToPlayFragment"
+            app:destination="@id/howToPlayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/howToPlay3Fragment"
+        android:name="com.example.motochika.fukuwaraiv2.how.HowToPlay3Fragment"
+        android:label="HowToPlay3Fragment" >
+        <action
+            android:id="@+id/action_howToPlay3Fragment_to_entryFragment"
+            app:destination="@id/entryFragment" />
+        <action
+            android:id="@+id/action_howToPlay3Fragment_to_howToPlay2Fragment"
+            app:destination="@id/howToPlay2Fragment" />
     </fragment>
 </navigation>

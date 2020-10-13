@@ -20,19 +20,19 @@
         app:srcCompat="@drawable/sample" />
 
     <Button
-        android:id="@+id/next_button_2"
+        android:id="@+id/back_button_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/frame_style_of_buttons"
-        android:text="前へ"
+        android:text="@string/go_back"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/next_button_1"
+        android:id="@+id/next_button_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
