@@ -103,7 +103,7 @@
             android:layout_height="@dimen/entry_button_height"
             android:layout_marginTop="20dp"
             android:background="@drawable/frame_style_of_buttons"
-            android:text="テスト"
+            android:text="遊び方"
             android:textColor="@color/white" />
 
 
