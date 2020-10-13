@@ -98,12 +98,12 @@
             android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/test_button"
+            android:id="@+id/howTo_play_button"
             android:layout_width="match_parent"
             android:layout_height="@dimen/entry_button_height"
             android:layout_marginTop="20dp"
             android:background="@drawable/frame_style_of_buttons"
-            android:text="テスト"
+            android:text="遊び方"
             android:textColor="@color/white" />
 
 
