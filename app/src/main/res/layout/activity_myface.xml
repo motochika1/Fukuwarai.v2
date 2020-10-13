@@ -20,8 +20,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.559"
-        app:srcCompat="@drawable/myface2" />
+        app:layout_constraintVertical_bias="0.559" />
 
     <com.example.motochika.fukuwaraiv2.related_ml.GraphicOverlay
         android:id="@+id/graphic_overlay"

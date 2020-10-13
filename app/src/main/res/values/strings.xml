@@ -3,7 +3,7 @@
     <string name="entry_hyottoko_button">ひょっとこで始める</string>
     <string name="entry_okame_button">オカメで始める</string>
     <string name="contentDescription">"anyStringValue"</string>
-    <string name="button_open">見る</string>
+    <string name="button_open">公開</string>
     <string name="button_change">変える</string>
     <string name="button_start_location">おもしろ顔</string>
     <string name="button_try_again">もう一度</string>
@@ -13,6 +13,6 @@
     <string name="go_back_title">タイトルに戻る</string>
     <string name="go_back">前に戻る</string>
     <string name="howTo_play_text_1">「変える」ボタンを押すと\n目、鼻、口が見えなくなります</string>
-    <string name="howTo_play_text_2">顔のパーツが見えなくなったら\n好きなところを適当にドラッグしたり\nタップしたりしてください\n＊バイブレーションが鳴ります</string>
+    <string name="howTo_play_text_2">顔のパーツが見えなくなったら\n好きなところをてきとうにドラッグしたり\nタップしたりしてください\n＊バイブレーションが鳴ります</string>
     <string name="howTo_play_text_3">最後に公開ボタンを押すと\n面白い顔がみられます\n\n「おもしろ顔」ボタンは押してみてのお楽しみ</string>
 </resources>
