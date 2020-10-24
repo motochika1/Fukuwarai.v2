@@ -14,6 +14,7 @@ import android.os.Message
 import android.util.Log
 import android.widget.Toast
 import androidx.core.net.toUri
+import com.google.android.play.core.internal.e
 import kotlinx.android.synthetic.main.activity_twitter_share.*
 import kotlinx.android.synthetic.main.fragment_entry.*
 import java.io.IOException
@@ -22,34 +23,21 @@ import java.net.URLEncoder
 
 class TwitterShareActivity : AppCompatActivity() {
 
-    private lateinit var imageUri: Uri
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_twitter_share)
 
-        try {
 
-            val bitmap = BitmapFactory.decodeStream(assets.open("myface.jpg"))
-            imageUri = Uri.parse(bitmap.toString())
-
-        } catch (e: IOException) {
-            e.printStackTrace()
-        } finally {
             share_button.setOnClickListener {
-                shareTwitter("Test", imageUri)
+                shareTwitter("Test")
             }
-        }
-
-
-
-
     }
 
 
-    private fun shareTwitter(message: String, u: Uri) {
+    private fun shareTwitter(message: String) {
         val twitterIntent = Intent(Intent.ACTION_SEND).apply {
-            putExtra(Intent.EXTRA_STREAM, u)
-            type = "image/jpeg"
+            putExtra(Intent.EXTRA_TEXT, "This is a test")
+            type = "image/plain"
         }
 
         val packageManager = packageManager
