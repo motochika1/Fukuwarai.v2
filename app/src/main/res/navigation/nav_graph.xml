@@ -38,5 +38,13 @@
             app:destination="@id/entryFragment"
             app:popUpTo="@id/entryFragment"
             app:popUpToInclusive="false"/>
+        <action
+            android:id="@+id/action_secondFaceFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.motochika.fukuwaraiv2.ResultFragment"
+        android:label="result_fragment"
+        tools:layout="@layout/result_fragment" />
 </navigation>

@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.motochika.fukuwaraiv2.R
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.*
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.back_button
@@ -198,8 +199,13 @@ class HyottokoFaceFragment : Fragment() {
                 nose_image.rotation = 0.toFloat()
                 mouth_image.rotation = 0.toFloat()
 
-
             }
+
+            share_button?.setOnClickListener {
+
+                findNavController().navigate(R.id.action_secondFaceFragment_to_resultFragment)
+            }
+
         }
         return view
     }
