@@ -1,19 +1,18 @@
 package com.example.motochika.fukuwaraiv2.hyottoko
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.MotionEvent
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.example.motochika.fukuwaraiv2.R
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.*
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.back_button
@@ -24,13 +23,12 @@ import kotlinx.android.synthetic.main.fragment_hyottoko_face.mouth_image
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.nose_image
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.open_button
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.rightEye_image
-import kotlinx.android.synthetic.main.fragment_okame_face.*
 
 @RequiresApi(Build.VERSION_CODES.O)
 class HyottokoFaceFragment : Fragment() {
 
-
-
+    private lateinit var root: View
+    private lateinit var imageView: ImageView
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -202,13 +200,37 @@ class HyottokoFaceFragment : Fragment() {
             }
 
             share_button?.setOnClickListener {
+                root = hyottoko_root
+                imageView = hyottoko_face
 
-                findNavController().navigate(R.id.action_secondFaceFragment_to_resultFragment)
+                val bitmap: Bitmap = takeScreenShotOfRootView(imageView)
+                imageView.setImageBitmap(bitmap)
+                root.setBackgroundColor(Color.parseColor("#999999"))
+
+
+                //findNavController().navigate(R.id.action_secondFaceFragment_to_resultFragment)
             }
 
+
+
         }
+
+
         return view
     }
+
+    companion object ScreenShot{
+        private fun takeScreenShot(view: View): Bitmap {
+
+            return Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+                .apply { view.draw(Canvas(this)) }
+        }
+
+
+        fun takeScreenShotOfRootView(v: View): Bitmap = takeScreenShot(v.rootView)
+
+    }
+
 
 }
 
