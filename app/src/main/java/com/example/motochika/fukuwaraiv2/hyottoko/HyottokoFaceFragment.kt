@@ -202,10 +202,24 @@ class HyottokoFaceFragment : Fragment() {
             share_button?.setOnClickListener {
                 root = hyottoko_root
                 imageView = hyottoko_face
+                back_button.visibility = View.INVISIBLE
+                changeFace_button.visibility = View.INVISIBLE
+                open_button.visibility = View.INVISIBLE
+                defo_button.visibility = View.INVISIBLE
+                share_button.visibility = View.INVISIBLE
 
                 val bitmap: Bitmap = takeScreenShotOfRootView(imageView)
                 imageView.setImageBitmap(bitmap)
                 root.setBackgroundColor(Color.parseColor("#999999"))
+
+                eyebrows.visibility = View.INVISIBLE
+
+                rightEye_image.visibility = View.INVISIBLE
+                leftEye_image.visibility = View.INVISIBLE
+                mouth_image.visibility = View.INVISIBLE
+                nose_image.visibility = View.INVISIBLE
+
+
 
 
                 //findNavController().navigate(R.id.action_secondFaceFragment_to_resultFragment)
