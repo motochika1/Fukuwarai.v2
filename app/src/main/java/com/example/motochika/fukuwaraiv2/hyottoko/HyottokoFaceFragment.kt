@@ -1,16 +1,18 @@
 package com.example.motochika.fukuwaraiv2.hyottoko
 
+import android.content.ContentValues
 import android.content.Context
+import android.content.Entity
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
-import android.os.Build
-import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
+import android.net.Uri
+import android.os.*
+import android.provider.MediaStore
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.example.motochika.fukuwaraiv2.R
@@ -23,6 +25,7 @@ import kotlinx.android.synthetic.main.fragment_hyottoko_face.mouth_image
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.nose_image
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.open_button
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.rightEye_image
+import java.io.File
 
 @RequiresApi(Build.VERSION_CODES.O)
 class HyottokoFaceFragment : Fragment() {
@@ -213,13 +216,11 @@ class HyottokoFaceFragment : Fragment() {
                 root.setBackgroundColor(Color.parseColor("#999999"))
 
                 eyebrows.visibility = View.INVISIBLE
-
                 rightEye_image.visibility = View.INVISIBLE
                 leftEye_image.visibility = View.INVISIBLE
                 mouth_image.visibility = View.INVISIBLE
                 nose_image.visibility = View.INVISIBLE
-
-
+                saveScreenShot(requireActivity(), bitmap)
 
 
                 //findNavController().navigate(R.id.action_secondFaceFragment_to_resultFragment)
@@ -243,6 +244,30 @@ class HyottokoFaceFragment : Fragment() {
 
         fun takeScreenShotOfRootView(v: View): Bitmap = takeScreenShot(v.rootView)
 
+        fun saveScreenShot(context: Context, bitmap: Bitmap) {
+
+            val values = ContentValues().apply {
+                val name = "${System.currentTimeMillis()}.jpg"
+                put(MediaStore.Images.Media.DISPLAY_NAME, name)
+                put(MediaStore.Images.Media.MIME_TYPE, "image/jpg")
+                put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/Screenshots/")
+                put(MediaStore.Images.Media.IS_PENDING, 1)
+            }
+
+            val collection =
+                MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+            context.contentResolver.insert(collection, values)?.let {imageUri ->
+                context.contentResolver.openOutputStream(imageUri).use { outputStream ->
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 90, outputStream)
+                }
+                values.clear()
+                values.put(MediaStore.Images.Media.IS_PENDING, 0)
+                context.contentResolver.update(imageUri, values, null, null)
+
+                Toast.makeText(context, "保存しました", Toast.LENGTH_SHORT).show()
+            }
+
+        }
     }
 
 
