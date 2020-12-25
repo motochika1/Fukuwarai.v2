@@ -35,9 +35,10 @@ class TwitterShareActivity : AppCompatActivity() {
 
 
     private fun shareTwitter(message: String) {
+        val uri = Uri.parse("android.resource://com.example.motochika.fukuwaraiv2/"+R.drawable.syougatsu_fujisan)
         val twitterIntent = Intent(Intent.ACTION_SEND).apply {
-            putExtra(Intent.EXTRA_TEXT, "This is a test")
-            type = "image/plain"
+            putExtra(Intent.EXTRA_STREAM, uri)
+            type = "image/png"
         }
 
         val packageManager = packageManager
