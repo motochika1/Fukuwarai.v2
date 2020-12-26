@@ -47,18 +47,11 @@ class HyottokoFaceFragment : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_hyottoko_face, container, false)
-
-
         val screenShots = ScreenShots()
         val twitterShare = TwitterShare()
-
         var listener = Listener(requireActivity())
 
-
-
         requireActivity().window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
-
-
 
             val rightEyeX = rightEye_image?.x
             val rightEyeY = rightEye_image?.y
@@ -68,8 +61,6 @@ class HyottokoFaceFragment : Fragment() {
             val noseY = nose_image?.y
             val mouthX = mouth_image?.x
             val mouthY = mouth_image?.y
-
-
 
             changeFace_button?.setOnClickListener {
 
@@ -83,7 +74,6 @@ class HyottokoFaceFragment : Fragment() {
                 leftEye_image.setOnTouchListener(listener.getListener())
                 nose_image.setOnTouchListener(listener.getListener())
                 mouth_image.setOnTouchListener(listener.getListener())
-
             }
 
             open_button?.setOnClickListener {
@@ -98,7 +88,6 @@ class HyottokoFaceFragment : Fragment() {
                 leftEye_image.setOnTouchListener(null)
                 nose_image.setOnTouchListener(null)
                 mouth_image.setOnTouchListener(null)
-
             }
 
             defo_button?.setOnClickListener {
@@ -128,7 +117,6 @@ class HyottokoFaceFragment : Fragment() {
                 if (mouthY != null) {
                     mouth_image.y = mouthY
                 }
-
             }
 
             back_button?.setOnClickListener {
@@ -159,14 +147,12 @@ class HyottokoFaceFragment : Fragment() {
                     mouth_image.y = mouthY
                 }
 
-
                 listener.i = 0
 
                 rightEye_image.rotation = 0.toFloat()
                 leftEye_image.rotation = 0.toFloat()
                 nose_image.rotation = 0.toFloat()
                 mouth_image.rotation = 0.toFloat()
-
             }
 
             share_button?.setOnClickListener {
@@ -191,16 +177,9 @@ class HyottokoFaceFragment : Fragment() {
 
                 //screenShots.saveScreenShot(requireActivity(), bitmap)
                 twitterShare.shareTwitter("Share",bitmap, requireActivity())
-
-
-                //findNavController().navigate(R.id.action_secondFaceFragment_to_resultFragment)
             }
-
         }
-
-
         return view
     }
-
 }
 

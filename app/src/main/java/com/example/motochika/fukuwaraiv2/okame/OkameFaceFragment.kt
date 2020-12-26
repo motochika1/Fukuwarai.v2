@@ -1,6 +1,8 @@
 package com.example.motochika.fukuwaraiv2.okame
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
@@ -10,10 +12,15 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import com.example.motochika.fukuwaraiv2.Listener
 import com.example.motochika.fukuwaraiv2.R
-import kotlinx.android.synthetic.main.fragment_hyottoko_face.*
+import com.example.motochika.fukuwaraiv2.ScreenShots
+import com.example.motochika.fukuwaraiv2.TwitterShare
+import kotlinx.android.synthetic.main.fragment_okame_face.*
+import kotlinx.android.synthetic.main.fragment_okame_face.share_button
 import kotlinx.android.synthetic.main.fragment_okame_face.back_button
 import kotlinx.android.synthetic.main.fragment_okame_face.changeFace_button
 import kotlinx.android.synthetic.main.fragment_okame_face.defo_button
@@ -26,6 +33,9 @@ import kotlinx.android.synthetic.main.fragment_okame_face.rightEye_image
 
 class OkameFaceFragment : Fragment() {
 
+    private lateinit var root: View
+    private lateinit var imageView: ImageView
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,60 +44,9 @@ class OkameFaceFragment : Fragment() {
     ): View? {
 
         val view  = inflater.inflate(R.layout.fragment_okame_face, container, false)
-        return view
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        var i = 0
-        val vibrator = activity?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        val vibrationEffect = VibrationEffect.createOneShot(1000, 1)
-
-        var listener = View.OnTouchListener(function = { view, motionEvent ->
-
-
-
-            if (motionEvent.action == MotionEvent.ACTION_MOVE) {
-
-
-
-                view.x = motionEvent.rawX - view.width/2
-                view.y = motionEvent.rawY - view.height/2
-
-
-
-                Log.d("MainActivity","touched")
-
-            }
-            if (motionEvent.action == MotionEvent.ACTION_DOWN) {
-
-                vibrator.vibrate(vibrationEffect)
-
-                i+=10
-
-                view.rotation =i.toFloat()
-
-                Log.d("MainActivity","rotated")
-
-
-            }
-
-            if (motionEvent.action == MotionEvent.ACTION_UP) {
-
-                vibrator.cancel()
-
-                Log.d("MainActivity","canceled")
-
-
-            }
-
-
-
-            true
-
-        })
+        val screenShots = ScreenShots()
+        val twitterShare = TwitterShare()
+        var listener = Listener(requireActivity())
 
         requireActivity().window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
 
@@ -100,37 +59,32 @@ class OkameFaceFragment : Fragment() {
             val mouthX = mouth_image?.x
             val mouthY = mouth_image?.y
 
-
-
             changeFace_button?.setOnClickListener {
 
                 //画像を透明にしている
                 rightEye_image.alpha = 0.0.toFloat()
-                leftEye_image.alpha =  0.0.toFloat()
+                leftEye_image.alpha = 0.0.toFloat()
                 nose_image.alpha = 0.0.toFloat()
-                mouth_image.alpha =  0.0.toFloat()
+                mouth_image.alpha = 0.0.toFloat()
 
-
-                rightEye_image.setOnTouchListener(listener)
-                leftEye_image.setOnTouchListener(listener)
-                nose_image.setOnTouchListener(listener)
-                mouth_image.setOnTouchListener(listener)
-
+                rightEye_image.setOnTouchListener(listener.getListener())
+                leftEye_image.setOnTouchListener(listener.getListener())
+                nose_image.setOnTouchListener(listener.getListener())
+                mouth_image.setOnTouchListener(listener.getListener())
             }
 
             open_button?.setOnClickListener {
 
                 //元の透明度に戻している
                 rightEye_image.alpha = 1.0.toFloat()
-                leftEye_image.alpha =  1.0.toFloat()
+                leftEye_image.alpha = 1.0.toFloat()
                 nose_image.alpha = 1.0.toFloat()
-                mouth_image.alpha =  1.0.toFloat()
+                mouth_image.alpha = 1.0.toFloat()
 
                 rightEye_image.setOnTouchListener(null)
                 leftEye_image.setOnTouchListener(null)
                 nose_image.setOnTouchListener(null)
                 mouth_image.setOnTouchListener(null)
-
             }
 
             defo_button?.setOnClickListener {
@@ -160,7 +114,6 @@ class OkameFaceFragment : Fragment() {
                 if (mouthY != null) {
                     mouth_image.y = mouthY
                 }
-
             }
 
             back_button?.setOnClickListener {
@@ -191,17 +144,39 @@ class OkameFaceFragment : Fragment() {
                     mouth_image.y = mouthY
                 }
 
-
-                i = 0
+                listener.i = 0
 
                 rightEye_image.rotation = 0.toFloat()
                 leftEye_image.rotation = 0.toFloat()
                 nose_image.rotation = 0.toFloat()
                 mouth_image.rotation = 0.toFloat()
+            }
+
+            share_button?.setOnClickListener {
+                root = okame_root
+                imageView = okame_face
+                back_button.visibility = View.INVISIBLE
+                changeFace_button.visibility = View.INVISIBLE
+                open_button.visibility = View.INVISIBLE
+                defo_button.visibility = View.INVISIBLE
+                share_button.visibility = View.INVISIBLE
+
+                val bitmap: Bitmap = screenShots.takeScreenShotOfRootView(imageView)
+                imageView.setImageBitmap(bitmap)
+                root.setBackgroundColor(Color.parseColor("#999999"))
+
+                rightEye_image.visibility = View.INVISIBLE
+                leftEye_image.visibility = View.INVISIBLE
+                mouth_image.visibility = View.INVISIBLE
+                nose_image.visibility = View.INVISIBLE
 
 
+                //screenShots.saveScreenShot(requireActivity(), bitmap)
+                twitterShare.shareTwitter("Share",bitmap, requireActivity())
             }
         }
+        return view
     }
 }
+
 
