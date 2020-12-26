@@ -290,7 +290,7 @@ class HyottokoFaceFragment : Fragment() {
         }
     }
 
-    fun Bitmap.bitmapToUri():Uri {
+    private fun Bitmap.bitmapToUri():Uri {
 
         val cacheDir: File = requireActivity().cacheDir
 
@@ -303,7 +303,7 @@ class HyottokoFaceFragment : Fragment() {
         this.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream)
         fileOutputStream?.close()
 
-        return FileProvider.getUriForFile(requireActivity(), "com.example.motochika.fukuwaraiv2.hyottoko", file)
+        return FileProvider.getUriForFile(requireActivity(), "com.example.motochika.fukuwaraiv2.fileprovider", file)
     }
 
 
