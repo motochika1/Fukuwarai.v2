@@ -16,6 +16,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.example.motochika.fukuwaraiv2.R
+import com.example.motochika.fukuwaraiv2.ScreenShots
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.*
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.back_button
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.changeFace_button
@@ -42,6 +43,8 @@ class HyottokoFaceFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_hyottoko_face, container, false)
         val vibrator = activity?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         val vibrationEffect = VibrationEffect.createOneShot(1000, 1)
+
+        val screenShots = ScreenShots()
 
         var i = 0
 
@@ -211,7 +214,7 @@ class HyottokoFaceFragment : Fragment() {
                 defo_button.visibility = View.INVISIBLE
                 share_button.visibility = View.INVISIBLE
 
-                val bitmap: Bitmap = takeScreenShotOfRootView(imageView)
+                val bitmap: Bitmap = screenShots.takeScreenShotOfRootView(imageView)
                 imageView.setImageBitmap(bitmap)
                 root.setBackgroundColor(Color.parseColor("#999999"))
 
@@ -220,54 +223,16 @@ class HyottokoFaceFragment : Fragment() {
                 leftEye_image.visibility = View.INVISIBLE
                 mouth_image.visibility = View.INVISIBLE
                 nose_image.visibility = View.INVISIBLE
-                saveScreenShot(requireActivity(), bitmap)
+                screenShots.saveScreenShot(requireActivity(), bitmap)
 
 
                 //findNavController().navigate(R.id.action_secondFaceFragment_to_resultFragment)
             }
 
-
-
         }
 
 
         return view
-    }
-
-    companion object ScreenShot{
-        private fun takeScreenShot(view: View): Bitmap {
-
-            return Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
-                .apply { view.draw(Canvas(this)) }
-        }
-
-
-        fun takeScreenShotOfRootView(v: View): Bitmap = takeScreenShot(v.rootView)
-
-        fun saveScreenShot(context: Context, bitmap: Bitmap) {
-
-            val values = ContentValues().apply {
-                val name = "${System.currentTimeMillis()}.jpg"
-                put(MediaStore.Images.Media.DISPLAY_NAME, name)
-                put(MediaStore.Images.Media.MIME_TYPE, "image/jpg")
-                put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/Screenshots/")
-                put(MediaStore.Images.Media.IS_PENDING, 1)
-            }
-
-            val collection =
-                MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
-            context.contentResolver.insert(collection, values)?.let {imageUri ->
-                context.contentResolver.openOutputStream(imageUri).use { outputStream ->
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 90, outputStream)
-                }
-                values.clear()
-                values.put(MediaStore.Images.Media.IS_PENDING, 0)
-                context.contentResolver.update(imageUri, values, null, null)
-
-                Toast.makeText(context, "保存しました", Toast.LENGTH_SHORT).show()
-            }
-
-        }
     }
 
 
