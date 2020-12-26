@@ -17,6 +17,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.example.motochika.fukuwaraiv2.R
 import com.example.motochika.fukuwaraiv2.ScreenShots
+import com.example.motochika.fukuwaraiv2.TwitterShare
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.*
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.back_button
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.changeFace_button
@@ -48,6 +49,7 @@ class HyottokoFaceFragment : Fragment() {
         val vibrationEffect = VibrationEffect.createOneShot(1000, 1)
 
         val screenShots = ScreenShots()
+        val twitterShare = TwitterShare()
 
         var i = 0
 
@@ -229,7 +231,7 @@ class HyottokoFaceFragment : Fragment() {
 
 
                 screenShots.saveScreenShot(requireActivity(), bitmap)
-                shareTwitter("Test",bitmap)
+                twitterShare.shareTwitter("Share",bitmap, requireActivity())
 
 
                 //findNavController().navigate(R.id.action_secondFaceFragment_to_resultFragment)
@@ -241,70 +243,8 @@ class HyottokoFaceFragment : Fragment() {
         return view
     }
 
-    private fun shareTwitter(message: String, bitmapImage: Bitmap) {
-        val uri = bitmapImage.bitmapToUri()
-        val twitterIntent = Intent(Intent.ACTION_SEND).apply {
-            putExtra(Intent.EXTRA_STREAM,  uri)
-            type = "image/png"
-        }
 
-        val packageManager = requireActivity().packageManager
-        val resolvedInfoList: List<ResolveInfo> = packageManager.queryIntentActivities(twitterIntent, PackageManager.MATCH_DEFAULT_ONLY)
-        var isResolved = false
 
-        for (resolveInfo in resolvedInfoList) {
-            if (resolveInfo.activityInfo.packageName.startsWith("com.twitter.android")) {
-                twitterIntent.setClassName(
-                    resolveInfo.activityInfo.packageName,
-                    resolveInfo.activityInfo.name
-                )
-                isResolved = true
-                break
-            }
-        }
-
-        if (isResolved) {
-            startActivity(Intent.createChooser(twitterIntent, "test"))
-        } else {
-            Intent().apply {
-                putExtra(Intent.EXTRA_TEXT, message)
-                action = Intent.ACTION_VIEW
-                data = Uri.parse("https://twitter.com/intent/tweet?text=" + message.urlEncode())
-            }
-
-            startActivity(Intent.createChooser(twitterIntent, "test"))
-            Toast.makeText(requireActivity(), "TwitterApp is not found.", Toast.LENGTH_LONG).show()
-        }
-
-    }
-
-    private fun String.urlEncode(): String {
-
-        return try {
-            URLEncoder.encode(this, "UTF-8")
-
-        } catch (e: UnsupportedEncodingException) {
-            Log.w("TwitterShareActivity", "UTF-8 should always be supported", e)
-
-            ""
-        }
-    }
-
-    private fun Bitmap.bitmapToUri():Uri {
-
-        val cacheDir: File = requireActivity().cacheDir
-
-        val fileName: String = System.currentTimeMillis().toString() + ".jpg"
-
-        val file = File(cacheDir, fileName)
-
-        val fileOutputStream = FileOutputStream(file)
-
-        this.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream)
-        fileOutputStream?.close()
-
-        return FileProvider.getUriForFile(requireActivity(), "com.example.motochika.fukuwaraiv2.fileprovider", file)
-    }
 
 
 }
