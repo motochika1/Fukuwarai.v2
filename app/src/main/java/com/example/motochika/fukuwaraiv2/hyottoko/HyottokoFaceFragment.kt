@@ -269,7 +269,7 @@ class HyottokoFaceFragment : Fragment() {
             Intent().apply {
                 putExtra(Intent.EXTRA_TEXT, message)
                 action = Intent.ACTION_VIEW
-                data = Uri.parse("https://twitter.com/intent/tweet?text=" + urlEncode(message))
+                data = Uri.parse("https://twitter.com/intent/tweet?text=" + message.urlEncode())
             }
 
             startActivity(Intent.createChooser(twitterIntent, "test"))
@@ -278,10 +278,10 @@ class HyottokoFaceFragment : Fragment() {
 
     }
 
-    private fun urlEncode(url: String): String {
+    private fun String.urlEncode(): String {
 
         return try {
-            URLEncoder.encode(url, "UTF-8")
+            URLEncoder.encode(this, "UTF-8")
 
         } catch (e: UnsupportedEncodingException) {
             Log.w("TwitterShareActivity", "UTF-8 should always be supported", e)
