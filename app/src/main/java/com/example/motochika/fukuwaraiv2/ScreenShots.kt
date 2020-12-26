@@ -30,7 +30,7 @@ class ScreenShots {
         }
 
         val collection =
-            MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         context.contentResolver.insert(collection, values)?.let {imageUri ->
             context.contentResolver.openOutputStream(imageUri).use { outputStream ->
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 90, outputStream)

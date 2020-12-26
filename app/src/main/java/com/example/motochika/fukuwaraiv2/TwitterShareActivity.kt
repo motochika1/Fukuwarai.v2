@@ -29,57 +29,10 @@ class TwitterShareActivity : AppCompatActivity() {
 
 
             share_button.setOnClickListener {
-                shareTwitter("Test")
+
             }
     }
 
 
-    private fun shareTwitter(message: String) {
-        val uri = Uri.parse("android.resource://com.example.motochika.fukuwaraiv2/"+R.drawable.syougatsu_fujisan)
-        val twitterIntent = Intent(Intent.ACTION_SEND).apply {
-            putExtra(Intent.EXTRA_STREAM, uri)
-            type = "image/png"
-        }
 
-        val packageManager = packageManager
-        val resolvedInfoList: List<ResolveInfo> = packageManager.queryIntentActivities(twitterIntent, PackageManager.MATCH_DEFAULT_ONLY)
-        var isResolved = false
-
-        for (resolveInfo in resolvedInfoList) {
-            if (resolveInfo.activityInfo.packageName.startsWith("com.twitter.android")) {
-                twitterIntent.setClassName(
-                    resolveInfo.activityInfo.packageName,
-                    resolveInfo.activityInfo.name
-                )
-                isResolved = true
-                break
-            }
-        }
-
-        if (isResolved) {
-            startActivity(Intent.createChooser(twitterIntent, "test"))
-        } else {
-           Intent().apply {
-               putExtra(Intent.EXTRA_TEXT, message)
-               action = Intent.ACTION_VIEW
-               data = Uri.parse("https://twitter.com/intent/tweet?text=" + urlEncode(message))
-           }
-
-            startActivity(Intent.createChooser(twitterIntent, "test"))
-            Toast.makeText(this, "TwitterApp is not found.", Toast.LENGTH_LONG).show()
-        }
-
-    }
-
-    private fun urlEncode(url: String): String {
-
-        return try {
-            URLEncoder.encode(url, "UTF-8")
-
-        } catch (e: UnsupportedEncodingException) {
-            Log.w("TwitterShareActivity", "UTF-8 should always be supported", e)
-
-            ""
-        }
-    }
 }

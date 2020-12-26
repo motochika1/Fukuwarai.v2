@@ -1,19 +1,19 @@
 package com.example.motochika.fukuwaraiv2.hyottoko
 
-import android.content.ContentValues
 import android.content.Context
-import android.content.Entity
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.content.pm.ResolveInfo
 import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.graphics.Color
 import android.net.Uri
 import android.os.*
-import android.provider.MediaStore
 import android.util.Log
 import android.view.*
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.example.motochika.fukuwaraiv2.R
 import com.example.motochika.fukuwaraiv2.ScreenShots
@@ -27,6 +27,9 @@ import kotlinx.android.synthetic.main.fragment_hyottoko_face.nose_image
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.open_button
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.rightEye_image
 import java.io.File
+import java.io.FileOutputStream
+import java.io.UnsupportedEncodingException
+import java.net.URLEncoder
 
 @RequiresApi(Build.VERSION_CODES.O)
 class HyottokoFaceFragment : Fragment() {
@@ -223,7 +226,10 @@ class HyottokoFaceFragment : Fragment() {
                 leftEye_image.visibility = View.INVISIBLE
                 mouth_image.visibility = View.INVISIBLE
                 nose_image.visibility = View.INVISIBLE
+
+
                 screenShots.saveScreenShot(requireActivity(), bitmap)
+                shareTwitter("Test",bitmap)
 
 
                 //findNavController().navigate(R.id.action_secondFaceFragment_to_resultFragment)
@@ -233,6 +239,71 @@ class HyottokoFaceFragment : Fragment() {
 
 
         return view
+    }
+
+    private fun shareTwitter(message: String, bitmapImage: Bitmap) {
+        val uri = bitmapImage.bitmapToUri()
+        val twitterIntent = Intent(Intent.ACTION_SEND).apply {
+            putExtra(Intent.EXTRA_STREAM,  uri)
+            type = "image/png"
+        }
+
+        val packageManager = requireActivity().packageManager
+        val resolvedInfoList: List<ResolveInfo> = packageManager.queryIntentActivities(twitterIntent, PackageManager.MATCH_DEFAULT_ONLY)
+        var isResolved = false
+
+        for (resolveInfo in resolvedInfoList) {
+            if (resolveInfo.activityInfo.packageName.startsWith("com.twitter.android")) {
+                twitterIntent.setClassName(
+                    resolveInfo.activityInfo.packageName,
+                    resolveInfo.activityInfo.name
+                )
+                isResolved = true
+                break
+            }
+        }
+
+        if (isResolved) {
+            startActivity(Intent.createChooser(twitterIntent, "test"))
+        } else {
+            Intent().apply {
+                putExtra(Intent.EXTRA_TEXT, message)
+                action = Intent.ACTION_VIEW
+                data = Uri.parse("https://twitter.com/intent/tweet?text=" + urlEncode(message))
+            }
+
+            startActivity(Intent.createChooser(twitterIntent, "test"))
+            Toast.makeText(requireActivity(), "TwitterApp is not found.", Toast.LENGTH_LONG).show()
+        }
+
+    }
+
+    private fun urlEncode(url: String): String {
+
+        return try {
+            URLEncoder.encode(url, "UTF-8")
+
+        } catch (e: UnsupportedEncodingException) {
+            Log.w("TwitterShareActivity", "UTF-8 should always be supported", e)
+
+            ""
+        }
+    }
+
+    fun Bitmap.bitmapToUri():Uri {
+
+        val cacheDir: File = requireActivity().cacheDir
+
+        val fileName: String = System.currentTimeMillis().toString() + ".jpg"
+
+        val file = File(cacheDir, fileName)
+
+        val fileOutputStream = FileOutputStream(file)
+
+        this.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream)
+        fileOutputStream?.close()
+
+        return FileProvider.getUriForFile(requireActivity(), "com.example.motochika.fukuwaraiv2.hyottoko", file)
     }
 
 
