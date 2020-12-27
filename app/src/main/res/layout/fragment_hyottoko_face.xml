@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hyottoko_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
@@ -9,7 +10,7 @@
 
 
     <ImageView
-        android:id="@+id/okame_face"
+        android:id="@+id/hyottoko_face"
         android:layout_width="350dp"
         android:layout_height="600dp"
         android:layout_marginStart="30dp"
@@ -29,10 +30,10 @@
         android:layout_width="224dp"
         android:layout_height="54dp"
         android:layout_marginTop="180dp"
-        app:layout_constraintEnd_toEndOf="@id/okame_face"
+        app:layout_constraintEnd_toEndOf="@id/hyottoko_face"
         app:layout_constraintHorizontal_bias="0.431"
-        app:layout_constraintStart_toStartOf="@id/okame_face"
-        app:layout_constraintTop_toTopOf="@id/okame_face"
+        app:layout_constraintStart_toStartOf="@id/hyottoko_face"
+        app:layout_constraintTop_toTopOf="@id/hyottoko_face"
         app:srcCompat="@drawable/eyebrows" />
 
     <ImageView
@@ -41,7 +42,7 @@
         android:layout_height="56dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="@id/okame_face"
+        app:layout_constraintStart_toStartOf="@id/hyottoko_face"
         app:layout_constraintTop_toBottomOf="@id/eyebrows"
         app:srcCompat="@drawable/hyottokoeye" />
 
@@ -51,7 +52,7 @@
         android:layout_height="56dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="88dp"
-        app:layout_constraintEnd_toEndOf="@id/okame_face"
+        app:layout_constraintEnd_toEndOf="@id/hyottoko_face"
         app:layout_constraintTop_toBottomOf="@id/eyebrows"
         app:srcCompat="@drawable/hyottokoeye" />
 
@@ -60,9 +61,9 @@
         android:layout_width="110dp"
         android:layout_height="89dp"
         app:layout_constraintBottom_toTopOf="@id/mouth_image"
-        app:layout_constraintEnd_toEndOf="@id/okame_face"
+        app:layout_constraintEnd_toEndOf="@id/hyottoko_face"
         app:layout_constraintHorizontal_bias="0.46"
-        app:layout_constraintStart_toStartOf="@id/okame_face"
+        app:layout_constraintStart_toStartOf="@id/hyottoko_face"
         app:srcCompat="@drawable/hyottokonose" />
 
     <ImageView
@@ -70,10 +71,10 @@
         android:layout_width="166dp"
         android:layout_height="80dp"
         android:layout_marginBottom="156dp"
-        app:layout_constraintBottom_toBottomOf="@id/okame_face"
-        app:layout_constraintEnd_toEndOf="@id/okame_face"
+        app:layout_constraintBottom_toBottomOf="@id/hyottoko_face"
+        app:layout_constraintEnd_toEndOf="@id/hyottoko_face"
         app:layout_constraintHorizontal_bias="0.521"
-        app:layout_constraintStart_toStartOf="@id/okame_face"
+        app:layout_constraintStart_toStartOf="@id/hyottoko_face"
         app:srcCompat="@drawable/hyottokomouth" />
 
     <LinearLayout
@@ -155,6 +156,23 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/share_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="100dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/frame_style_of_play_button"
+        android:text="シェア"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
 
 
 

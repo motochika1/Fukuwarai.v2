@@ -3,6 +3,9 @@
     package="com.release.motochika.fukuwaraiv2">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
+
 
     <application
         android:allowBackup="true"
@@ -25,6 +28,19 @@
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
             android:value="face" />
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.release.motochika.fukuwaraiv2.fileprovider"
+            android:enabled="true"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_pathes" />
+        </provider>
+
     </application>
 
 </manifest>
