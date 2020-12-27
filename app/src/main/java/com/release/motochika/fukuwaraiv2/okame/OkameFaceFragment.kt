@@ -1,4 +1,4 @@
-package com.example.motochika.fukuwaraiv2.okame
+package com.release.motochika.fukuwaraiv2.okame
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -15,10 +15,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import com.example.motochika.fukuwaraiv2.Listener
-import com.example.motochika.fukuwaraiv2.R
-import com.example.motochika.fukuwaraiv2.ScreenShots
-import com.example.motochika.fukuwaraiv2.TwitterShare
+import com.release.motochika.fukuwaraiv2.Listener
+import com.release.motochika.fukuwaraiv2.R
+import com.release.motochika.fukuwaraiv2.ScreenShots
+import com.release.motochika.fukuwaraiv2.TwitterShare
 import kotlinx.android.synthetic.main.fragment_okame_face.*
 import kotlinx.android.synthetic.main.fragment_okame_face.share_button
 import kotlinx.android.synthetic.main.fragment_okame_face.back_button
