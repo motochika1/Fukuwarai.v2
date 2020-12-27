@@ -20,7 +20,11 @@ class TwitterShare {
 
     fun shareTwitter(message: String, bitmapImage: Bitmap, activity: Activity) {
         val uri = bitmapImage.toUri(activity)
+        val url = "https://play.google.com/store/apps/details?id=com.release.motochika.fukuwaraiv2"
         val twitterIntent = Intent(Intent.ACTION_SEND).apply {
+
+            putExtra(Intent.EXTRA_TEXT, url)
+            type = "text/plain"
             putExtra(Intent.EXTRA_STREAM,  uri)
             type = "image/png"
         }
