@@ -86,35 +86,6 @@ class OkameFaceFragment : Fragment() {
                 mouth_image.setOnTouchListener(null)
             }
 
-            share_button?.setOnClickListener {
-
-                //元の位置に戻す
-                if (rightEyeX != null) {
-                    rightEye_image.x = rightEyeX
-                }
-                if (rightEyeY != null) {
-                    rightEye_image.y = rightEyeY
-                }
-                if (leftEyeX != null) {
-                    leftEye_image.x = leftEyeX
-                }
-                if (leftEyeY != null) {
-                    leftEye_image.y = leftEyeY
-                }
-                if (noseX != null) {
-                    nose_image.x = noseX
-                }
-                if (noseY != null) {
-                    nose_image.y = noseY
-                }
-                if (mouthX != null) {
-                    mouth_image.x = mouthX
-                }
-                if (mouthY != null) {
-                    mouth_image.y = mouthY
-                }
-            }
-
             back_button?.setOnClickListener {
 
                 //元の状態に戻す
