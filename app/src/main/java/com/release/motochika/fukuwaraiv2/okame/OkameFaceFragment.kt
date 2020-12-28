@@ -134,6 +134,7 @@ class OkameFaceFragment : Fragment() {
                 imageView.setImageBitmap(bitmap)
                 root.setBackgroundColor(Color.parseColor("#999999"))
 
+                eyeBrows.visibility = View.INVISIBLE
                 rightEye_image.visibility = View.INVISIBLE
                 leftEye_image.visibility = View.INVISIBLE
                 mouth_image.visibility = View.INVISIBLE
