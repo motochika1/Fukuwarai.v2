@@ -23,7 +23,6 @@ import kotlinx.android.synthetic.main.fragment_okame_face.*
 import kotlinx.android.synthetic.main.fragment_okame_face.share_button
 import kotlinx.android.synthetic.main.fragment_okame_face.back_button
 import kotlinx.android.synthetic.main.fragment_okame_face.changeFace_button
-import kotlinx.android.synthetic.main.fragment_okame_face.defo_button
 import kotlinx.android.synthetic.main.fragment_okame_face.leftEye_image
 import kotlinx.android.synthetic.main.fragment_okame_face.mouth_image
 import kotlinx.android.synthetic.main.fragment_okame_face.nose_image
@@ -87,7 +86,7 @@ class OkameFaceFragment : Fragment() {
                 mouth_image.setOnTouchListener(null)
             }
 
-            defo_button?.setOnClickListener {
+            share_button?.setOnClickListener {
 
                 //元の位置に戻す
                 if (rightEyeX != null) {
@@ -158,7 +157,6 @@ class OkameFaceFragment : Fragment() {
                 back_button.visibility = View.INVISIBLE
                 changeFace_button.visibility = View.INVISIBLE
                 open_button.visibility = View.INVISIBLE
-                defo_button.visibility = View.INVISIBLE
                 share_button.visibility = View.INVISIBLE
 
                 val bitmap: Bitmap = screenShots.takeScreenShotOfRootView(imageView)
