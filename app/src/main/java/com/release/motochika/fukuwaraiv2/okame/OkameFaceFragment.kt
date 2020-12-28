@@ -23,7 +23,6 @@ import kotlinx.android.synthetic.main.fragment_okame_face.*
 import kotlinx.android.synthetic.main.fragment_okame_face.share_button
 import kotlinx.android.synthetic.main.fragment_okame_face.back_button
 import kotlinx.android.synthetic.main.fragment_okame_face.changeFace_button
-import kotlinx.android.synthetic.main.fragment_okame_face.defo_button
 import kotlinx.android.synthetic.main.fragment_okame_face.leftEye_image
 import kotlinx.android.synthetic.main.fragment_okame_face.mouth_image
 import kotlinx.android.synthetic.main.fragment_okame_face.nose_image
@@ -87,35 +86,6 @@ class OkameFaceFragment : Fragment() {
                 mouth_image.setOnTouchListener(null)
             }
 
-            defo_button?.setOnClickListener {
-
-                //元の位置に戻す
-                if (rightEyeX != null) {
-                    rightEye_image.x = rightEyeX
-                }
-                if (rightEyeY != null) {
-                    rightEye_image.y = rightEyeY
-                }
-                if (leftEyeX != null) {
-                    leftEye_image.x = leftEyeX
-                }
-                if (leftEyeY != null) {
-                    leftEye_image.y = leftEyeY
-                }
-                if (noseX != null) {
-                    nose_image.x = noseX
-                }
-                if (noseY != null) {
-                    nose_image.y = noseY
-                }
-                if (mouthX != null) {
-                    mouth_image.x = mouthX
-                }
-                if (mouthY != null) {
-                    mouth_image.y = mouthY
-                }
-            }
-
             back_button?.setOnClickListener {
 
                 //元の状態に戻す
@@ -158,13 +128,13 @@ class OkameFaceFragment : Fragment() {
                 back_button.visibility = View.INVISIBLE
                 changeFace_button.visibility = View.INVISIBLE
                 open_button.visibility = View.INVISIBLE
-                defo_button.visibility = View.INVISIBLE
                 share_button.visibility = View.INVISIBLE
 
                 val bitmap: Bitmap = screenShots.takeScreenShotOfRootView(imageView)
                 imageView.setImageBitmap(bitmap)
                 root.setBackgroundColor(Color.parseColor("#999999"))
 
+                eyeBrows.visibility = View.INVISIBLE
                 rightEye_image.visibility = View.INVISIBLE
                 leftEye_image.visibility = View.INVISIBLE
                 mouth_image.visibility = View.INVISIBLE
