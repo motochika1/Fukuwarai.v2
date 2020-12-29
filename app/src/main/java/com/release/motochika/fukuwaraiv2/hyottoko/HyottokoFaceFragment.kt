@@ -55,14 +55,21 @@ class HyottokoFaceFragment : Fragment() {
 
         requireActivity().window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
 
-            val rightEyeX = rightEye_image?.x
-            val rightEyeY = rightEye_image?.y
-            val leftEyeX = leftEye_image?.x
-            val leftEyeY = leftEye_image?.y
-            val noseX = nose_image?.x
-            val noseY = nose_image?.y
-            val mouthX = mouth_image?.x
-            val mouthY = mouth_image?.y
+            val faceParts = mapOf<String, View>("right-eye" to rightEye_image, "left-eye" to leftEye_image,
+                "nose" to nose_image, "mouth" to mouth_image)
+
+            val rootParts = mapOf<String, View>("face" to hyottoko_face, "root" to hyottoko_root, "eye-brows" to eyebrows)
+
+            val rightEyeX = faceParts["right-eye"]?.x
+            val rightEyeY = faceParts["right-eye"]?.y
+            val leftEyeX = faceParts["left-eye"]?.x
+            val leftEyeY = faceParts["left-eye"]?.y
+            val noseX = faceParts["nose"]?.x
+            val noseY = faceParts["nose"]?.y
+            val mouthX = faceParts["mouth"]?.x
+            val mouthY = faceParts["mouth"]?.y
+
+
 
 
             changeFace_button?.setOnClickListener {
@@ -72,9 +79,9 @@ class HyottokoFaceFragment : Fragment() {
 
                 when(state) {
 
-                    1 -> playStart(listener)
-                    2 -> showFace()
-                    0 -> shareOnTwitter(screenShots, twitterShare, requireActivity())
+                    1 -> playStart(listener, faceParts)
+                    2 -> showFace(faceParts)
+                    0 -> shareOnTwitter(screenShots, twitterShare, faceParts, rootParts, requireActivity())
                 }
             }
 
@@ -82,36 +89,36 @@ class HyottokoFaceFragment : Fragment() {
 
                 //元の状態に戻す
                 if (rightEyeX != null) {
-                    rightEye_image.x = rightEyeX
+                    faceParts["right-eye"]?.x = rightEyeX
                 }
                 if (rightEyeY != null) {
-                    rightEye_image.y = rightEyeY
+                    faceParts["right-eye"]?.y = rightEyeY
                 }
                 if (leftEyeX != null) {
-                    leftEye_image.x = leftEyeX
+                    faceParts["left-eye"]?.x = leftEyeX
                 }
                 if (leftEyeY != null) {
-                    leftEye_image.y = leftEyeY
+                    faceParts["left-eye"]?.y = leftEyeY
                 }
                 if (noseX != null) {
-                    nose_image.x = noseX
+                    faceParts["nose"]?.x = noseX
                 }
                 if (noseY != null) {
-                    nose_image.y = noseY
+                    faceParts["nose"]?.y = noseY
                 }
                 if (mouthX != null) {
-                    mouth_image.x = mouthX
+                    faceParts["mouth"]?.x = mouthX
                 }
                 if (mouthY != null) {
-                    mouth_image.y = mouthY
+                    faceParts["mouth"]?.y = mouthY
                 }
 
                 listener.i = 0
 
-                rightEye_image.rotation = 0.toFloat()
-                leftEye_image.rotation = 0.toFloat()
-                nose_image.rotation = 0.toFloat()
-                mouth_image.rotation = 0.toFloat()
+                (faceParts["right-eye"] ?: error("")).rotation = 0.toFloat()
+                (faceParts["left-eye"] ?: error("")).rotation = 0.toFloat()
+                (faceParts["nose"] ?: error("")).rotation = 0.toFloat()
+                (faceParts["mouth"] ?: error("")).rotation = 0.toFloat()
 
                 changeFace_button.text = "あそぶ"
                 back_button.visibility = View.INVISIBLE
@@ -122,35 +129,46 @@ class HyottokoFaceFragment : Fragment() {
         return view
     }
 
-    private fun playStart(listener: Listener) {
+
+    private fun playStart(listener: Listener, faceParts: Map<String, View>) {
 
         //画像を透明にしている
-        rightEye_image.alpha = 0.0.toFloat()
-        leftEye_image.alpha = 0.0.toFloat()
-        nose_image.alpha = 0.0.toFloat()
-        mouth_image.alpha = 0.0.toFloat()
 
-        rightEye_image.setOnTouchListener(listener.getListener())
-        leftEye_image.setOnTouchListener(listener.getListener())
-        nose_image.setOnTouchListener(listener.getListener())
-        mouth_image.setOnTouchListener(listener.getListener())
+        faceParts.map { it.value.alpha = 0.0.toFloat() }
+
+//        rightEye_image.alpha = 0.0.toFloat()
+//        leftEye_image.alpha = 0.0.toFloat()
+//        nose_image.alpha = 0.0.toFloat()
+//        mouth_image.alpha = 0.0.toFloat()
+
+        faceParts.map { it.value.setOnTouchListener(listener.getListener()) }
+
+//        rightEye_image.setOnTouchListener(listener.getListener())
+//        leftEye_image.setOnTouchListener(listener.getListener())
+//        nose_image.setOnTouchListener(listener.getListener())
+//        mouth_image.setOnTouchListener(listener.getListener())
 
         changeFace_button.text = "公開"
 
     }
 
-    private fun showFace() {
+    private fun showFace(faceParts: Map<String, View>) {
 
-        //元の透明度に戻している
-        rightEye_image.alpha = 1.0.toFloat()
-        leftEye_image.alpha = 1.0.toFloat()
-        nose_image.alpha = 1.0.toFloat()
-        mouth_image.alpha = 1.0.toFloat()
 
-        rightEye_image.setOnTouchListener(null)
-        leftEye_image.setOnTouchListener(null)
-        nose_image.setOnTouchListener(null)
-        mouth_image.setOnTouchListener(null)
+        faceParts.map { it.value.alpha = 1.0.toFloat() }
+
+//        //元の透明度に戻している
+//        rightEye_image.alpha = 1.0.toFloat()
+//        leftEye_image.alpha = 1.0.toFloat()
+//        nose_image.alpha = 1.0.toFloat()
+//        mouth_image.alpha = 1.0.toFloat()
+
+        faceParts.map { it.value.setOnTouchListener(null) }
+
+//        rightEye_image.setOnTouchListener(null)
+//        leftEye_image.setOnTouchListener(null)
+//        nose_image.setOnTouchListener(null)
+//        mouth_image.setOnTouchListener(null)
 
         changeFace_button.text = "シェア"
         back_button.visibility = View.VISIBLE
@@ -158,9 +176,10 @@ class HyottokoFaceFragment : Fragment() {
     }
 
 
-    private fun shareOnTwitter(screenShots: ScreenShots, twitterShare: TwitterShare, activity: Activity) {
-        root = hyottoko_root
-        imageView = hyottoko_face
+    private fun shareOnTwitter(screenShots: ScreenShots, twitterShare: TwitterShare,
+                               faceParts: Map<String, View>, rootParts: Map<String, View>, activity: Activity) {
+        root = rootParts["root"] ?: error("")
+        imageView = rootParts["face"] as ImageView
         back_button.visibility = View.INVISIBLE
         changeFace_button.visibility = View.INVISIBLE
 
@@ -168,11 +187,14 @@ class HyottokoFaceFragment : Fragment() {
         imageView.setImageBitmap(bitmap)
         root.setBackgroundColor(Color.parseColor("#999999"))
 
-        eyebrows.visibility = View.INVISIBLE
-        rightEye_image.visibility = View.INVISIBLE
-        leftEye_image.visibility = View.INVISIBLE
-        mouth_image.visibility = View.INVISIBLE
-        nose_image.visibility = View.INVISIBLE
+        (rootParts["eye-brows"] ?: error("")).visibility = View.INVISIBLE
+        faceParts.map { it.value.visibility = View.INVISIBLE }
+
+//        eyebrows.visibility = View.INVISIBLE
+//        rightEye_image.visibility = View.INVISIBLE
+//        leftEye_image.visibility = View.INVISIBLE
+//        mouth_image.visibility = View.INVISIBLE
+//        nose_image.visibility = View.INVISIBLE
 
 
         //screenShots.saveScreenShot(requireActivity(), bitmap)
