@@ -29,7 +29,7 @@ class ClickHandler {
             it.value.alpha = 0.0.toFloat()
             it.value.setOnTouchListener(listener.getListener())
         }
-        (buttons["play"] ?: error("")).text = "公開"
+        (buttons["play"] ?: error("")).text = "オープン！"
     }
 
     fun showFaceClicked(faceParts: Map<String, View>, buttons: Map<String, Button>) {
@@ -40,7 +40,7 @@ class ClickHandler {
             it.value.setOnTouchListener(null)
         }
 
-        (buttons["play"] ?: error("")).text = "シェア"
+        (buttons["play"] ?: error("")).text = "Twitterにシェア"
         (buttons["play-again"] ?: error("")).visibility = View.VISIBLE
     }
 
