@@ -1,4 +1,4 @@
-package com.release.motochika.fukuwaraiv2.how
+package com.release.motochika.fukuwaraiv2.instructions
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,21 +15,14 @@ class HowToPlay3Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_how_to_play_3, container, false)
-
-        view.back_button_3.setOnClickListener {
-
-            findNavController().navigate(R.id.action_howToPlay3Fragment_to_howToPlay2Fragment)
-        }
 
         view.next_button_3.setOnClickListener {
             findNavController().navigate(R.id.action_howToPlay3Fragment_to_entryFragment)
         }
 
-
         return view
-
     }
 }
 
