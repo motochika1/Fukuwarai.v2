@@ -20,8 +20,8 @@
 
     <TextView
         android:id="@+id/howTo_play_text3"
-        android:layout_width="397dp"
-        android:layout_height="67dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:text="@string/howTo_play_text_3"
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/frame_style_of_buttons"
         android:text="@string/go_back_title"
         android:textSize="10sp"
