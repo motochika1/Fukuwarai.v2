@@ -1,5 +1,6 @@
 package com.release.motochika.fukuwaraiv2.hyottoko
 
+import android.animation.ObjectAnimator
 import android.os.*
 import android.util.Log
 import android.view.*
