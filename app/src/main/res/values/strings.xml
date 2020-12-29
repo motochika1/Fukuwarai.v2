@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name"> おもしろ\n福笑い</string>
-    <string name="entry_hyottoko_button">ひょっとこで始める</string>
-    <string name="entry_okame_button">オカメで始める</string>
+    <string name="entry_hyottoko_button">ひょっとこではじめる</string>
+    <string name="entry_okame_button">オカメではじめる</string>
     <string name="contentDescription">"anyStringValue"</string>
     <string name="button_open">オープン！</string>
     <string name="button_start">あそぶ</string>
@@ -9,10 +9,12 @@
     <string name="button_try_again">もう\nいっかい</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="go_next">次へ</string>
-    <string name="go_back_title">タイトルに戻る</string>
-    <string name="go_back">前に戻る</string>
-    <string name="howTo_play_text_1">「あそぶ」ボタンを押してゲームスタート！</string>
+    <string name="go_next">つぎへ</string>
+    <string name="go_back_title">タイトルにもどる</string>
+    <string name="go_back">前にもどる</string>
+    <string name="howTo_play_text_1">「あそぶ」ボタンをおしてゲームスタート！</string>
     <string name="howTo_play_text_2">好きなところをてきとうにドラッグしたり\nタップしたりしてね！\n＊バイブレーションがなるよ</string>
-    <string name="howTo_play_text_3">「オープン！」を押すと\nおもしろい顔がみられるよ\n\n　あそんだらTwitterにシェアしよう！</string>
+    <string name="howTo_play_text_3">「オープン！」をおすと\nおもしろい顔がみられるよ\n\n　あそんだらTwitterにシェアしよう！</string>
+    <string name="instructions">あそびかた</string>
+    <string name="licence">ほうてきひょうじ</string>
 </resources>
