@@ -15,16 +15,17 @@
         android:id="@+id/imageView"
         android:layout_width="415dp"
         android:layout_height="474dp"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/sample3"/>
 
     <TextView
         android:id="@+id/howTo_play_text3"
         android:layout_width="397dp"
         android:layout_height="67dp"
+        android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:text="@string/howTo_play_text_3"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/back_button_3"/>
+        android:textAlignment="center"/>
 
     <Button
         android:id="@+id/next_button_3"

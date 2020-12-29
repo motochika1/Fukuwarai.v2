@@ -13,6 +13,7 @@
         android:id="@+id/imageView"
         android:layout_width="415dp"
         android:layout_height="474dp"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/sample" />
 
     <TextView
