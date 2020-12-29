@@ -21,8 +21,8 @@
 
     <TextView
         android:id="@+id/howTo_play_text3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="397dp"
+        android:layout_height="67dp"
         android:layout_marginTop="15dp"
         android:text="@string/howTo_play_text_3"
         android:textAlignment="center"
