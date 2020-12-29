@@ -79,9 +79,9 @@ class HyottokoFaceFragment : Fragment() {
 
                 when(state) {
 
-                    1 -> playStart(listener, faceParts)
-                    2 -> showFace(faceParts)
-                    0 -> shareOnTwitter(screenShots, twitterShare, faceParts, rootParts, requireActivity())
+                    1 -> playClicked(listener, faceParts)
+                    2 -> showFaceClicked(faceParts)
+                    0 -> shareClicked(screenShots, twitterShare, faceParts, rootParts, requireActivity())
                 }
             }
 
@@ -130,18 +130,19 @@ class HyottokoFaceFragment : Fragment() {
     }
 
 
-    private fun playStart(listener: Listener, faceParts: Map<String, View>) {
+    private fun playClicked(listener: Listener, faceParts: Map<String, View>) {
 
         //画像を透明にしている
 
-        faceParts.map { it.value.alpha = 0.0.toFloat() }
+        faceParts.map {
+            it.value.alpha = 0.0.toFloat()
+            it.value.setOnTouchListener(listener.getListener())
+        }
 
 //        rightEye_image.alpha = 0.0.toFloat()
 //        leftEye_image.alpha = 0.0.toFloat()
 //        nose_image.alpha = 0.0.toFloat()
 //        mouth_image.alpha = 0.0.toFloat()
-
-        faceParts.map { it.value.setOnTouchListener(listener.getListener()) }
 
 //        rightEye_image.setOnTouchListener(listener.getListener())
 //        leftEye_image.setOnTouchListener(listener.getListener())
@@ -152,18 +153,19 @@ class HyottokoFaceFragment : Fragment() {
 
     }
 
-    private fun showFace(faceParts: Map<String, View>) {
+    private fun showFaceClicked(faceParts: Map<String, View>) {
 
 
-        faceParts.map { it.value.alpha = 1.0.toFloat() }
+        faceParts.map {
+            it.value.alpha = 1.0.toFloat()
+            it.value.setOnTouchListener(null)
+        }
 
 //        //元の透明度に戻している
 //        rightEye_image.alpha = 1.0.toFloat()
 //        leftEye_image.alpha = 1.0.toFloat()
 //        nose_image.alpha = 1.0.toFloat()
 //        mouth_image.alpha = 1.0.toFloat()
-
-        faceParts.map { it.value.setOnTouchListener(null) }
 
 //        rightEye_image.setOnTouchListener(null)
 //        leftEye_image.setOnTouchListener(null)
@@ -176,7 +178,7 @@ class HyottokoFaceFragment : Fragment() {
     }
 
 
-    private fun shareOnTwitter(screenShots: ScreenShots, twitterShare: TwitterShare,
+    private fun shareClicked(screenShots: ScreenShots, twitterShare: TwitterShare,
                                faceParts: Map<String, View>, rootParts: Map<String, View>, activity: Activity) {
         root = rootParts["root"] ?: error("")
         imageView = rootParts["face"] as ImageView
