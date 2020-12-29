@@ -103,7 +103,7 @@
             android:layout_height="@dimen/entry_button_height"
             android:layout_marginTop="20dp"
             android:background="@drawable/frame_style_of_buttons"
-            android:text="遊び方"
+            android:text="@string/instructions"
             android:textColor="@color/white" />
 
 
@@ -113,7 +113,7 @@
             android:layout_height="@dimen/entry_button_height"
             android:layout_marginTop="20dp"
             android:background="@drawable/frame_style_of_buttons"
-            android:text="法的表示"
+            android:text="@string/licence"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
