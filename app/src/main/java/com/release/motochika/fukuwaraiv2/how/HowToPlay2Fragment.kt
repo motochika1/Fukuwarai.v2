@@ -17,10 +17,10 @@ class HowToPlay2Fragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_how_to_play_2, container, false)
 
-        view.back_button_2.setOnClickListener {
-
-            findNavController().navigate(R.id.action_howToPlay2Fragment_to_howToPlayFragment)
-        }
+//        view.back_button_2.setOnClickListener {
+//
+//            findNavController().navigate(R.id.action_howToPlay2Fragment_to_howToPlayFragment)
+//        }
 
         view.next_button_2.setOnClickListener {
             findNavController().navigate(R.id.action_howToPlay2Fragment_to_howToPlay3Fragment)
