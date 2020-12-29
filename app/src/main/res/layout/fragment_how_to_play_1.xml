@@ -12,7 +12,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="415dp"
-        android:layout_height="478dp"
+        android:layout_height="474dp"
         app:srcCompat="@drawable/sample" />
 
     <TextView
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/frame_style_of_buttons"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="53dp"
         android:layout_gravity="center"
         android:text="@string/go_next"
         android:textColor="@color/white"/>
