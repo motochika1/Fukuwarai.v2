@@ -71,7 +71,9 @@
         android:label="HowToPlay3Fragment" >
         <action
             android:id="@+id/action_howToPlay3Fragment_to_entryFragment"
-            app:destination="@id/entryFragment" />
+            app:destination="@id/entryFragment"
+            app:popUpTo="@id/entryFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_howToPlay3Fragment_to_howToPlay2Fragment"
             app:destination="@id/howToPlay2Fragment" />
