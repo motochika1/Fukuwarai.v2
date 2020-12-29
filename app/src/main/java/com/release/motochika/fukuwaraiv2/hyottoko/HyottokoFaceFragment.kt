@@ -8,16 +8,9 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.release.motochika.fukuwaraiv2.*
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.*
-import kotlinx.android.synthetic.main.fragment_hyottoko_face.back_button
-import kotlinx.android.synthetic.main.fragment_hyottoko_face.changeFace_button
-import kotlinx.android.synthetic.main.fragment_hyottoko_face.leftEye_image
-import kotlinx.android.synthetic.main.fragment_hyottoko_face.mouth_image
-import kotlinx.android.synthetic.main.fragment_hyottoko_face.nose_image
-import kotlinx.android.synthetic.main.fragment_hyottoko_face.rightEye_image
 
 @RequiresApi(Build.VERSION_CODES.O)
 class HyottokoFaceFragment : Fragment() {
-
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -37,21 +30,34 @@ class HyottokoFaceFragment : Fragment() {
 
         requireActivity().window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
 
-            val faceParts = mapOf<String, View>("right-eye" to rightEye_image, "left-eye" to leftEye_image,
-                "nose" to nose_image, "mouth" to mouth_image)
-            val rootParts = mapOf<String, View>("face" to hyottoko_face, "root" to hyottoko_root, "eye-brows" to eyebrows)
-            val buttons = mapOf<String, Button>("play" to changeFace_button, "play-again" to back_button)
+            val faceParts = mapOf<String, View>(
+                "right-eye" to rightEye_image, "left-eye" to leftEye_image,
+                "nose" to nose_image, "mouth" to mouth_image
+            )
+            val rootParts = mapOf<String, View>(
+                "face" to hyottoko_face,
+                "root" to hyottoko_root,
+                "eye-brows" to eyebrows
+            )
+            val buttons = mapOf<String, Button>("play" to play_button, "play-again" to back_button)
 
 
-            changeFace_button?.setOnClickListener {
+            buttons["play"]?.setOnClickListener {
 
                 count++
                 state = count % 3
 
-                when(state) {
+                when (state) {
                     1 -> clickHandler.playClicked(listener, faceParts, buttons)
                     2 -> clickHandler.showFaceClicked(faceParts, buttons)
-                    0 -> clickHandler.shareClicked(screenShots, twitterShare, faceParts, rootParts, requireActivity(), buttons)
+                    0 -> clickHandler.shareClicked(
+                        screenShots,
+                        twitterShare,
+                        faceParts,
+                        rootParts,
+                        requireActivity(),
+                        buttons
+                    )
                 }
 
                 faceParts.forEach {
@@ -60,27 +66,26 @@ class HyottokoFaceFragment : Fragment() {
                 }
             }
 
-            back_button?.setOnClickListener {
+            buttons["play-again"]?.setOnClickListener {
 
                 //元の状態に戻す
-                    faceParts["right-eye"]?.x = 189.0F
-                    faceParts["right-eye"]?.y = 783.0F
-                    faceParts["left-eye"]?.x = 510.0F
-                    faceParts["left-eye"]?.y = 783.0F
-                    faceParts["nose"]?.x = 341.0F
-                    faceParts["nose"]?.y = 870.0F
-                    faceParts["mouth"]?.x = 297.0F
-                    faceParts["mouth"]?.y = 1137.0F
+                faceParts["right-eye"]?.x = 189.0F
+                faceParts["right-eye"]?.y = 783.0F
+                faceParts["left-eye"]?.x = 510.0F
+                faceParts["left-eye"]?.y = 783.0F
+                faceParts["nose"]?.x = 341.0F
+                faceParts["nose"]?.y = 870.0F
+                faceParts["mouth"]?.x = 297.0F
+                faceParts["mouth"]?.y = 1137.0F
 
                 listener.i = 0
 
                 faceParts.map { it.value.rotation = 0.toFloat() }
 
-                changeFace_button.text = "あそぶ"
-                back_button.visibility = View.INVISIBLE
+                (buttons["play"] ?: error("")).text = "あそぶ"
+                (buttons["play-again"] ?: error("")).visibility = View.INVISIBLE
                 count++
             }
-
         }
         return view
     }
