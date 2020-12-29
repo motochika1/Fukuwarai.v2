@@ -1,5 +1,6 @@
 package com.release.motochika.fukuwaraiv2.hyottoko
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -15,6 +16,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.release.motochika.fukuwaraiv2.Listener
 import com.release.motochika.fukuwaraiv2.R
 import com.release.motochika.fukuwaraiv2.ScreenShots
@@ -25,7 +27,6 @@ import kotlinx.android.synthetic.main.fragment_hyottoko_face.changeFace_button
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.leftEye_image
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.mouth_image
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.nose_image
-import kotlinx.android.synthetic.main.fragment_hyottoko_face.open_button
 import kotlinx.android.synthetic.main.fragment_hyottoko_face.rightEye_image
 import java.io.File
 import java.io.FileOutputStream
@@ -49,6 +50,8 @@ class HyottokoFaceFragment : Fragment() {
         val screenShots = ScreenShots()
         val twitterShare = TwitterShare()
         var listener = Listener(requireActivity())
+        var state: Int
+        var count = 0
 
         requireActivity().window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
 
@@ -61,32 +64,18 @@ class HyottokoFaceFragment : Fragment() {
             val mouthX = mouth_image?.x
             val mouthY = mouth_image?.y
 
+
             changeFace_button?.setOnClickListener {
 
-                //画像を透明にしている
-                rightEye_image.alpha = 0.0.toFloat()
-                leftEye_image.alpha = 0.0.toFloat()
-                nose_image.alpha = 0.0.toFloat()
-                mouth_image.alpha = 0.0.toFloat()
+                count++
+                state = count % 3
 
-                rightEye_image.setOnTouchListener(listener.getListener())
-                leftEye_image.setOnTouchListener(listener.getListener())
-                nose_image.setOnTouchListener(listener.getListener())
-                mouth_image.setOnTouchListener(listener.getListener())
-            }
+                when(state) {
 
-            open_button?.setOnClickListener {
-
-                //元の透明度に戻している
-                rightEye_image.alpha = 1.0.toFloat()
-                leftEye_image.alpha = 1.0.toFloat()
-                nose_image.alpha = 1.0.toFloat()
-                mouth_image.alpha = 1.0.toFloat()
-
-                rightEye_image.setOnTouchListener(null)
-                leftEye_image.setOnTouchListener(null)
-                nose_image.setOnTouchListener(null)
-                mouth_image.setOnTouchListener(null)
+                    1 -> playStart(listener)
+                    2 -> showFace()
+                    0 -> shareOnTwitter(screenShots, twitterShare, requireActivity())
+                }
             }
 
             back_button?.setOnClickListener {
@@ -123,32 +112,72 @@ class HyottokoFaceFragment : Fragment() {
                 leftEye_image.rotation = 0.toFloat()
                 nose_image.rotation = 0.toFloat()
                 mouth_image.rotation = 0.toFloat()
-            }
 
-            share_button?.setOnClickListener {
-                root = hyottoko_root
-                imageView = hyottoko_face
+                changeFace_button.text = "あそぶ"
                 back_button.visibility = View.INVISIBLE
-                changeFace_button.visibility = View.INVISIBLE
-                open_button.visibility = View.INVISIBLE
-                share_button.visibility = View.INVISIBLE
-
-                val bitmap: Bitmap = screenShots.takeScreenShotOfRootView(imageView)
-                imageView.setImageBitmap(bitmap)
-                root.setBackgroundColor(Color.parseColor("#999999"))
-
-                eyebrows.visibility = View.INVISIBLE
-                rightEye_image.visibility = View.INVISIBLE
-                leftEye_image.visibility = View.INVISIBLE
-                mouth_image.visibility = View.INVISIBLE
-                nose_image.visibility = View.INVISIBLE
-
-
-                //screenShots.saveScreenShot(requireActivity(), bitmap)
-                twitterShare.shareTwitter("Share",bitmap, requireActivity())
+                count++
             }
+
         }
         return view
     }
+
+    private fun playStart(listener: Listener) {
+
+        //画像を透明にしている
+        rightEye_image.alpha = 0.0.toFloat()
+        leftEye_image.alpha = 0.0.toFloat()
+        nose_image.alpha = 0.0.toFloat()
+        mouth_image.alpha = 0.0.toFloat()
+
+        rightEye_image.setOnTouchListener(listener.getListener())
+        leftEye_image.setOnTouchListener(listener.getListener())
+        nose_image.setOnTouchListener(listener.getListener())
+        mouth_image.setOnTouchListener(listener.getListener())
+
+        changeFace_button.text = "公開"
+
+    }
+
+    private fun showFace() {
+
+        //元の透明度に戻している
+        rightEye_image.alpha = 1.0.toFloat()
+        leftEye_image.alpha = 1.0.toFloat()
+        nose_image.alpha = 1.0.toFloat()
+        mouth_image.alpha = 1.0.toFloat()
+
+        rightEye_image.setOnTouchListener(null)
+        leftEye_image.setOnTouchListener(null)
+        nose_image.setOnTouchListener(null)
+        mouth_image.setOnTouchListener(null)
+
+        changeFace_button.text = "シェア"
+        back_button.visibility = View.VISIBLE
+
+    }
+
+
+    private fun shareOnTwitter(screenShots: ScreenShots, twitterShare: TwitterShare, activity: Activity) {
+        root = hyottoko_root
+        imageView = hyottoko_face
+        back_button.visibility = View.INVISIBLE
+        changeFace_button.visibility = View.INVISIBLE
+
+        val bitmap: Bitmap = screenShots.takeScreenShotOfRootView(imageView)
+        imageView.setImageBitmap(bitmap)
+        root.setBackgroundColor(Color.parseColor("#999999"))
+
+        eyebrows.visibility = View.INVISIBLE
+        rightEye_image.visibility = View.INVISIBLE
+        leftEye_image.visibility = View.INVISIBLE
+        mouth_image.visibility = View.INVISIBLE
+        nose_image.visibility = View.INVISIBLE
+
+
+        //screenShots.saveScreenShot(requireActivity(), bitmap)
+        twitterShare.shareTwitter("Share",bitmap, activity)
+    }
+
 }
 

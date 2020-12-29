@@ -17,7 +17,6 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toTopOf="@id/buttons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,86 +76,36 @@
         app:layout_constraintStart_toStartOf="@id/hyottoko_face"
         app:srcCompat="@drawable/hyottokomouth" />
 
-    <LinearLayout
-        android:id="@+id/buttons"
-        android:layout_width="340dp"
-        android:layout_height="85dp"
-        android:layout_marginBottom="36dp"
+
+    <Button
+        android:id="@+id/changeFace_button"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/frame_style_of_play_button"
+        android:text="@string/button_change"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/changeFace_button"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_weight="1"
-            android:background="@drawable/frame_style_of_play_button"
-            android:text="@string/button_change"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/open_button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.963" />
-
-        <Button
-            android:id="@+id/open_button"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="@dimen/button_margin_side"
-            android:layout_marginEnd="@dimen/button_margin_side"
-            android:layout_weight="1"
-            android:background="@drawable/frame_style_of_play_button"
-            android:text="@string/button_open"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@id/okame_face"
-            app:layout_constraintTop_toTopOf="@id/okame_face"
-            app:layout_constraintVertical_bias="0.96"
-            tools:layout_editor_absoluteX="233dp" />
-
-        <Button
-            android:id="@+id/share_button"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginEnd="40dp"
-            android:layout_weight="1"
-            android:background="@drawable/frame_style_of_play_button"
-            android:text="@string/button_share"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/open_button"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.961" />
-        <Button
-            android:id="@+id/back_button"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="10dp"
-            android:background="@drawable/frame_style_of_back_button"
-            android:text="@string/button_try_again"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </LinearLayout>
-
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/frame_style_of_back_button"
+        android:visibility="invisible"
+        android:text="@string/button_try_again"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
