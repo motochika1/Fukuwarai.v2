@@ -34,6 +34,10 @@ class ClickHandler {
             it.value.setOnTouchListener(listener.getListener())
         }
         (buttons["play"] ?: error("")).text = "オープン！"
+        ObjectAnimator.ofFloat(buttons["play-again"], View.TRANSLATION_X, 100f).apply {
+            duration = 500
+            start()
+        }
     }
 
     fun showFaceClicked(faceParts: Map<String, View>, buttons: Map<String, Button>) {
@@ -48,7 +52,13 @@ class ClickHandler {
         }
 
         (buttons["play"] ?: error("")).text = "Twitterにシェア"
+
         (buttons["play-again"] ?: error("")).visibility = View.VISIBLE
+        ObjectAnimator.ofFloat(buttons["play-again"], View.TRANSLATION_X, -10f).apply {
+            duration = 500
+            start()
+        }
+
     }
 
     fun shareClicked(
