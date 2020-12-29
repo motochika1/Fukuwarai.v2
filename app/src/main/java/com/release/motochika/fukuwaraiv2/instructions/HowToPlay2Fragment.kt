@@ -1,4 +1,4 @@
-package com.release.motochika.fukuwaraiv2.how
+package com.release.motochika.fukuwaraiv2.instructions
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

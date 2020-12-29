@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/howToPlayFragment"
-        android:name="com.release.motochika.fukuwaraiv2.how.HowToPlayFragment"
+        android:name="com.release.motochika.fukuwaraiv2.instructions.HowToPlayFragment"
         android:label="fragment_how_to_play"
         tools:layout="@layout/fragment_how_to_play_1">
         <action
@@ -56,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/howToPlay2Fragment"
-        android:name="com.release.motochika.fukuwaraiv2.how.HowToPlay2Fragment"
+        android:name="com.release.motochika.fukuwaraiv2.instructions.HowToPlay2Fragment"
         android:label="HowToPlay2Fragment">
         <action
             android:id="@+id/action_howToPlay2Fragment_to_howToPlay3Fragment"
@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/howToPlay3Fragment"
-        android:name="com.release.motochika.fukuwaraiv2.how.HowToPlay3Fragment"
+        android:name="com.release.motochika.fukuwaraiv2.instructions.HowToPlay3Fragment"
         android:label="HowToPlay3Fragment">
         <action
             android:id="@+id/action_howToPlay3Fragment_to_entryFragment"
