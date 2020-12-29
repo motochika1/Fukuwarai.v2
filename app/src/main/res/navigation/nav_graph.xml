@@ -9,7 +9,7 @@
         android:id="@+id/entryFragment"
         android:name="com.release.motochika.fukuwaraiv2.entry.EntryFragment"
         android:label="fragment_entry"
-        tools:layout="@layout/fragment_entry" >
+        tools:layout="@layout/fragment_entry">
         <action
             android:id="@+id/action_entryFragment_to_firstFaceAFragment"
             app:destination="@id/firstFaceAFragment" />
@@ -24,12 +24,12 @@
         android:id="@+id/firstFaceAFragment"
         android:name="com.release.motochika.fukuwaraiv2.okame.OkameFaceFragment"
         android:label="fragment_okame_face"
-        tools:layout="@layout/fragment_okame_face" >
+        tools:layout="@layout/fragment_okame_face">
         <action
             android:id="@+id/action_firstFaceAFragment_to_entryFragment"
             app:destination="@id/entryFragment"
             app:popUpTo="@id/entryFragment"
-            app:popUpToInclusive="false"/>
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/secondFaceFragment"
@@ -40,13 +40,13 @@
             android:id="@+id/action_secondFaceFragment_to_entryFragment"
             app:destination="@id/entryFragment"
             app:popUpTo="@id/entryFragment"
-            app:popUpToInclusive="false"/>
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/howToPlayFragment"
         android:name="com.release.motochika.fukuwaraiv2.how.HowToPlayFragment"
         android:label="fragment_how_to_play"
-        tools:layout="@layout/fragment_how_to_play_1" >
+        tools:layout="@layout/fragment_how_to_play_1">
         <action
             android:id="@+id/action_howToPlayFragment_to_howToPlay2Fragment"
             app:destination="@id/howToPlay2Fragment" />
@@ -57,7 +57,7 @@
     <fragment
         android:id="@+id/howToPlay2Fragment"
         android:name="com.release.motochika.fukuwaraiv2.how.HowToPlay2Fragment"
-        android:label="HowToPlay2Fragment" >
+        android:label="HowToPlay2Fragment">
         <action
             android:id="@+id/action_howToPlay2Fragment_to_howToPlay3Fragment"
             app:destination="@id/howToPlay3Fragment" />
@@ -68,12 +68,12 @@
     <fragment
         android:id="@+id/howToPlay3Fragment"
         android:name="com.release.motochika.fukuwaraiv2.how.HowToPlay3Fragment"
-        android:label="HowToPlay3Fragment" >
+        android:label="HowToPlay3Fragment">
         <action
             android:id="@+id/action_howToPlay3Fragment_to_entryFragment"
             app:destination="@id/entryFragment"
             app:popUpTo="@id/entryFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_howToPlay3Fragment_to_howToPlay2Fragment"
             app:destination="@id/howToPlay2Fragment" />

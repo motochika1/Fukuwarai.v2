@@ -4,11 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/background"
+    android:orientation="vertical"
     tools:context=".how.HowToPlayFragment">
-
-    <!-- TODO: Update blank fragment layout -->
 
 
     <ImageView
@@ -16,17 +14,16 @@
         android:layout_width="415dp"
         android:layout_height="474dp"
         android:layout_gravity="center"
-        app:srcCompat="@drawable/sample2"/>
+        app:srcCompat="@drawable/sample2" />
 
     <TextView
         android:id="@+id/howTo_play_text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:layout_gravity="center"
+        android:layout_marginTop="40dp"
         android:text="@string/howTo_play_text_2"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/back_button_2"/>
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/next_button_2"
@@ -36,5 +33,6 @@
         android:layout_marginTop="25dp"
         android:background="@drawable/frame_style_of_buttons"
         android:text="@string/go_next"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white" />
+
 </LinearLayout>
