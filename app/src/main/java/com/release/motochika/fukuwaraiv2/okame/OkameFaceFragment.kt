@@ -43,6 +43,22 @@ class OkameFaceFragment : Fragment() {
             )
             val buttons = mapOf<String, Button>("play" to play_button, "play-again" to back_button)
 
+            val rightEyeX = rightEye_image?.x
+            val rightEyeY = rightEye_image?.y
+            val leftEyeX = leftEye_image?.x
+            val leftEyeY = leftEye_image?.y
+            val noseX = nose_image?.x
+            val noseY = nose_image?.y
+            val mouthX = mouth_image?.x
+            val mouthY = mouth_image?.y
+
+            val primeCoords = mapOf("right-eye-x" to rightEyeX, "right-eye-y" to rightEyeY,
+                                    "left-eye-x" to leftEyeX, "left-eye-y" to leftEyeY,
+                                    "nose-x" to noseX, "nose-y" to noseY, "mouth-x" to mouthX,
+                                    "mouth-y" to mouthY)
+
+
+
 
             buttons["play"]?.setOnClickListener {
 
@@ -61,24 +77,35 @@ class OkameFaceFragment : Fragment() {
                         buttons
                     )
                 }
-
-                faceParts.forEach {
-                    Log.d(it.key + "-x", it.value.x.toString())
-                    Log.d(it.key + "-y", it.value.y.toString())
-                }
             }
 
             buttons["play-again"]?.setOnClickListener {
 
                 //元の状態に戻す
-                faceParts["right-eye"]?.x = 284.0F
-                faceParts["right-eye"]?.y = 816.0F
-                faceParts["left-eye"]?.x = 536.0F
-                faceParts["left-eye"]?.y = 816.0F
-                faceParts["nose"]?.x = 376.0F
-                faceParts["nose"]?.y = 921.0F
-                faceParts["mouth"]?.x = 250.0F
-                faceParts["mouth"]?.y = 1188.0F
+                if (rightEyeX != null) {
+                    faceParts["right-eye"]?.x = rightEyeX
+                }
+                if (rightEyeY != null) {
+                    faceParts["right-eye"]?.y = rightEyeY
+                }
+                if (leftEyeX != null) {
+                    faceParts["left-eye"]?.x = leftEyeX
+                }
+                if (leftEyeY != null) {
+                    faceParts["left-eye"]?.y = leftEyeY
+                }
+                if (noseX != null) {
+                    faceParts["nose"]?.x = noseX
+                }
+                if (noseY != null) {
+                    faceParts["nose"]?.y = noseY
+                }
+                if (mouthX != null) {
+                    faceParts["mouth"]?.x = mouthX
+                }
+                if (mouthY != null) {
+                    faceParts["mouth"]?.y = mouthY
+                }
 
                 listener.i = 0
 
