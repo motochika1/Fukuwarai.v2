@@ -25,7 +25,6 @@ class EntryFragment : Fragment() {
         view.entry_okame_button.setOnClickListener {
 
             findNavController().navigate(R.id.action_entryFragment_to_firstFaceAFragment)
-
         }
 
         view.entry_hyottoko_button.setOnClickListener {
@@ -43,8 +42,6 @@ class EntryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
 
         license.setOnClickListener {
 

@@ -1,8 +1,6 @@
 package com.release.motochika.fukuwaraiv2.hyottoko
 
-import android.animation.ObjectAnimator
 import android.os.*
-import android.util.Log
 import android.view.*
 import android.widget.Button
 import androidx.annotation.RequiresApi
@@ -12,7 +10,6 @@ import kotlinx.android.synthetic.main.fragment_hyottoko_face.*
 
 @RequiresApi(Build.VERSION_CODES.O)
 class HyottokoFaceFragment : Fragment() {
-
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -104,7 +101,7 @@ class HyottokoFaceFragment : Fragment() {
                 faceParts.map { it.value.rotation = 0.toFloat() }
 
                 (buttons["play"] ?: error("")).text = "あそぶ"
-               (buttons["play-again"] ?: error("")).visibility = View.INVISIBLE
+                (buttons["play-again"] ?: error("")).visibility = View.INVISIBLE
                 count++
             }
         }

@@ -5,12 +5,10 @@ import android.app.Activity
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Build
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import androidx.annotation.RequiresApi
-import kotlinx.android.synthetic.main.fragment_hyottoko_face.*
 
 class ClickHandler {
 
@@ -60,7 +58,6 @@ class ClickHandler {
             duration = 500
             start()
         }
-
     }
 
     fun shareClicked(
