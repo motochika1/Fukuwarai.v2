@@ -66,20 +66,23 @@ class ClickHandler {
         faceParts: Map<String, View>,
         rootParts: Map<String, View>,
         activity: Activity,
-        buttons: Map<String, Button>
+        buttons: Map<String, Button>,
+        faceType: String
     ) {
         root = rootParts["root"] ?: error("")
         imageView = rootParts["face"] as ImageView
         (buttons["play"] ?: error("")).visibility = View.INVISIBLE
         (buttons["play-again"] ?: error("")).visibility = View.INVISIBLE
+        (rootParts["share-text"] ?: error("")).visibility = View.VISIBLE
 
         val bitmap: Bitmap = screenShots.takeScreenShotOfRootView(imageView)
         imageView.setImageBitmap(bitmap)
         root.setBackgroundColor(Color.parseColor("#999999"))
 
         (rootParts["eye-brows"] ?: error("")).visibility = View.INVISIBLE
+        (rootParts["share-text"] ?: error("")).visibility = View.INVISIBLE
         faceParts.map { it.value.visibility = View.INVISIBLE }
 
-        twitterShare.shareTwitter("Share", bitmap, activity)
+        twitterShare.shareTwitter("Share", bitmap, activity,faceType)
     }
 }

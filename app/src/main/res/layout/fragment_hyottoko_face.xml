@@ -9,6 +9,25 @@
     tools:context=".hyottoko.HyottokoFaceFragment">
 
 
+    <TextView
+        android:id="@+id/share_text"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:text="あけまして\nおめでとうございます"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/share_text_size"
+        android:textStyle="bold"
+        android:fontFamily="@font/kosugi_maru"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fukuwarai_moji" />
+
+
     <ImageView
         android:id="@+id/hyottoko_face"
         android:layout_width="350dp"

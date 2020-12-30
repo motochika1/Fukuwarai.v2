@@ -38,7 +38,8 @@ class OkameFaceFragment : Fragment() {
             val rootParts = mapOf<String, View>(
                 "face" to okame_face,
                 "root" to okame_root,
-                "eye-brows" to eyeBrows
+                "eye-brows" to eyeBrows,
+                "share-text" to share_text
             )
             val buttons = mapOf<String, Button>("play" to play_button, "play-again" to back_button)
 
@@ -65,7 +66,8 @@ class OkameFaceFragment : Fragment() {
                         faceParts,
                         rootParts,
                         requireActivity(),
-                        buttons
+                        buttons,
+                        "おかめの福笑い"
                     )
                 }
             }
