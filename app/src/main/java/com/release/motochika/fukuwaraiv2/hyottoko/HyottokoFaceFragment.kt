@@ -1,5 +1,7 @@
 package com.release.motochika.fukuwaraiv2.hyottoko
 
+import android.animation.Animator
+import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -135,7 +137,10 @@ class HyottokoFaceFragment : Fragment() {
         //画像を透明にしている
 
         faceParts.map {
-            it.value.alpha = 0.0.toFloat()
+            ObjectAnimator.ofFloat(it.value, View.ALPHA, 1.0f, 0.0f).apply {
+                duration = 500
+                start()
+            }
             it.value.setOnTouchListener(listener.getListener())
         }
 
@@ -150,6 +155,10 @@ class HyottokoFaceFragment : Fragment() {
 //        mouth_image.setOnTouchListener(listener.getListener())
 
         changeFace_button.text = "公開"
+        ObjectAnimator.ofFloat(back_button, View.TRANSLATION_X, 100f).apply {
+            duration = 500
+            start()
+        }
 
     }
 
@@ -157,7 +166,10 @@ class HyottokoFaceFragment : Fragment() {
 
 
         faceParts.map {
-            it.value.alpha = 1.0.toFloat()
+            ObjectAnimator.ofFloat(it.value, View.ALPHA, 0f, 1f).apply {
+                duration = 800
+                start()
+            }
             it.value.setOnTouchListener(null)
         }
 
@@ -174,6 +186,10 @@ class HyottokoFaceFragment : Fragment() {
 
         changeFace_button.text = "シェア"
         back_button.visibility = View.VISIBLE
+        ObjectAnimator.ofFloat(back_button, View.TRANSLATION_X, -50f).apply {
+            duration = 500
+            start()
+        }
 
     }
 
