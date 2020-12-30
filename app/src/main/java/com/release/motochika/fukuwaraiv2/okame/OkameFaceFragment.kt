@@ -52,14 +52,6 @@ class OkameFaceFragment : Fragment() {
             val mouthX = mouth_image?.x
             val mouthY = mouth_image?.y
 
-            val primeCoords = mapOf("right-eye-x" to rightEyeX, "right-eye-y" to rightEyeY,
-                                    "left-eye-x" to leftEyeX, "left-eye-y" to leftEyeY,
-                                    "nose-x" to noseX, "nose-y" to noseY, "mouth-x" to mouthX,
-                                    "mouth-y" to mouthY)
-
-
-
-
             buttons["play"]?.setOnClickListener {
 
                 count++
