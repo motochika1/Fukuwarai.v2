@@ -14,6 +14,7 @@ class Listener(activity: Activity) {
 
     var i = 0
     private val vibrator = activity?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+
     @RequiresApi(Build.VERSION_CODES.O)
     val vibrationEffect: VibrationEffect = VibrationEffect.createOneShot(1000, 1)
 
@@ -52,11 +53,7 @@ class Listener(activity: Activity) {
 
                 Log.d("MainActivity", "canceled")
 
-
             }
-
-
-
             true
 
         })

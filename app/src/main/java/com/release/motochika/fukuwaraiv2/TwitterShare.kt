@@ -17,7 +17,6 @@ import java.net.URLEncoder
 
 class TwitterShare {
 
-
     fun shareTwitter(message: String, bitmapImage: Bitmap, activity: Activity) {
         val uri = bitmapImage.toUri(activity)
         val url = "https://play.google.com/store/apps/details?id=com.release.motochika.fukuwaraiv2"
@@ -25,12 +24,13 @@ class TwitterShare {
 
             putExtra(Intent.EXTRA_TEXT, url)
             type = "text/plain"
-            putExtra(Intent.EXTRA_STREAM,  uri)
+            putExtra(Intent.EXTRA_STREAM, uri)
             type = "image/png"
         }
 
         val packageManager = activity.packageManager
-        val resolvedInfoList: List<ResolveInfo> = packageManager.queryIntentActivities(twitterIntent, PackageManager.MATCH_DEFAULT_ONLY)
+        val resolvedInfoList: List<ResolveInfo> =
+            packageManager.queryIntentActivities(twitterIntent, PackageManager.MATCH_DEFAULT_ONLY)
         var isResolved = false
 
         for (resolveInfo in resolvedInfoList) {
@@ -59,7 +59,6 @@ class TwitterShare {
 
     }
 
-
     private fun String.toUrl(): String {
 
         return try {
@@ -72,7 +71,7 @@ class TwitterShare {
         }
     }
 
-    private fun Bitmap.toUri(activity: Activity):Uri {
+    private fun Bitmap.toUri(activity: Activity): Uri {
 
         val cacheDir: File = activity.cacheDir
 
@@ -85,9 +84,10 @@ class TwitterShare {
         this.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream)
         fileOutputStream?.close()
 
-        return FileProvider.getUriForFile(activity, "com.release.motochika.fukuwaraiv2.fileprovider", file)
+        return FileProvider.getUriForFile(
+            activity,
+            "com.release.motochika.fukuwaraiv2.fileprovider",
+            file
+        )
     }
-
-
-
 }
