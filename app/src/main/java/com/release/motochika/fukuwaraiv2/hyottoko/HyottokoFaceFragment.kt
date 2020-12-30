@@ -35,7 +35,8 @@ class HyottokoFaceFragment : Fragment() {
             val rootParts = mapOf<String, View>(
                 "face" to hyottoko_face,
                 "root" to hyottoko_root,
-                "eye-brows" to eyebrows
+                "eye-brows" to eyebrows,
+                "share-text" to share_text
             )
             val buttons = mapOf<String, Button>("play" to play_button, "play-again" to back_button)
 
