@@ -120,7 +120,7 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

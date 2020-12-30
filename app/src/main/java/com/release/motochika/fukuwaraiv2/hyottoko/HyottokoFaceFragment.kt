@@ -104,7 +104,7 @@ class HyottokoFaceFragment : Fragment() {
                 faceParts.map { it.value.rotation = 0.toFloat() }
 
                 (buttons["play"] ?: error("")).text = "あそぶ"
-               (buttons["play-again"] ?: error("")).visibility = View.GONE
+               (buttons["play-again"] ?: error("")).visibility = View.INVISIBLE
                 count++
             }
         }

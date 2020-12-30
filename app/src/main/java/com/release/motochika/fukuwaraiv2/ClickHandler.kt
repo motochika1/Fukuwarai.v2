@@ -5,6 +5,7 @@ import android.app.Activity
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Build
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -54,6 +55,7 @@ class ClickHandler {
         (buttons["play"] ?: error("")).text = "Twitterにシェア"
 
         (buttons["play-again"] ?: error("")).visibility = View.VISIBLE
+
         ObjectAnimator.ofFloat(buttons["play-again"], View.TRANSLATION_X, -10f).apply {
             duration = 500
             start()

@@ -52,14 +52,6 @@ class OkameFaceFragment : Fragment() {
             val mouthX = mouth_image?.x
             val mouthY = mouth_image?.y
 
-            val primeCoords = mapOf("right-eye-x" to rightEyeX, "right-eye-y" to rightEyeY,
-                                    "left-eye-x" to leftEyeX, "left-eye-y" to leftEyeY,
-                                    "nose-x" to noseX, "nose-y" to noseY, "mouth-x" to mouthX,
-                                    "mouth-y" to mouthY)
-
-
-
-
             buttons["play"]?.setOnClickListener {
 
                 count++
@@ -112,7 +104,7 @@ class OkameFaceFragment : Fragment() {
                 faceParts.map { it.value.rotation = 0.toFloat() }
 
                 (buttons["play"] ?: error("")).text = "あそぶ"
-                (buttons["play-again"] ?: error("")).visibility = View.GONE
+                (buttons["play-again"] ?: error("")).visibility = View.INVISIBLE
                 count++
             }
         }
