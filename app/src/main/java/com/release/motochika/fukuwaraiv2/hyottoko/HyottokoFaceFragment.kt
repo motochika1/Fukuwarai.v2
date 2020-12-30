@@ -64,7 +64,8 @@ class HyottokoFaceFragment : Fragment() {
                         faceParts,
                         rootParts,
                         requireActivity(),
-                        buttons
+                        buttons,
+                        "ひょっとこの福笑い"
                     )
                 }
             }

@@ -66,7 +66,8 @@ class OkameFaceFragment : Fragment() {
                         faceParts,
                         rootParts,
                         requireActivity(),
-                        buttons
+                        buttons,
+                        "おかめの福笑い"
                     )
                 }
             }

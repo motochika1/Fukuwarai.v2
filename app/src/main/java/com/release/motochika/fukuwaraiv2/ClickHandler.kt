@@ -66,7 +66,8 @@ class ClickHandler {
         faceParts: Map<String, View>,
         rootParts: Map<String, View>,
         activity: Activity,
-        buttons: Map<String, Button>
+        buttons: Map<String, Button>,
+        faceType: String
     ) {
         root = rootParts["root"] ?: error("")
         imageView = rootParts["face"] as ImageView
@@ -82,6 +83,6 @@ class ClickHandler {
         (rootParts["share-text"] ?: error("")).visibility = View.INVISIBLE
         faceParts.map { it.value.visibility = View.INVISIBLE }
 
-        twitterShare.shareTwitter("Share", bitmap, activity)
+        twitterShare.shareTwitter("Share", bitmap, activity,faceType)
     }
 }
