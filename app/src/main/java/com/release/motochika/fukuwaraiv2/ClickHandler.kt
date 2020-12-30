@@ -1,5 +1,6 @@
 package com.release.motochika.fukuwaraiv2
 
+import android.animation.ObjectAnimator
 import android.app.Activity
 import android.graphics.Bitmap
 import android.graphics.Color
@@ -26,22 +27,38 @@ class ClickHandler {
         //画像を透明にしている
 
         faceParts.map {
-            it.value.alpha = 0.0.toFloat()
+            ObjectAnimator.ofFloat(it.value, "alpha", 1f, 0f).apply {
+                duration = 200
+                start()
+            }
             it.value.setOnTouchListener(listener.getListener())
         }
         (buttons["play"] ?: error("")).text = "オープン！"
+        ObjectAnimator.ofFloat(buttons["play-again"], View.TRANSLATION_X, 100f).apply {
+            duration = 500
+            start()
+        }
     }
 
     fun showFaceClicked(faceParts: Map<String, View>, buttons: Map<String, Button>) {
 
 
         faceParts.map {
-            it.value.alpha = 1.0.toFloat()
+            ObjectAnimator.ofFloat(it.value, "alpha", 1f).apply {
+                duration = 500
+                start()
+            }
             it.value.setOnTouchListener(null)
         }
 
         (buttons["play"] ?: error("")).text = "Twitterにシェア"
+
         (buttons["play-again"] ?: error("")).visibility = View.VISIBLE
+        ObjectAnimator.ofFloat(buttons["play-again"], View.TRANSLATION_X, -10f).apply {
+            duration = 500
+            start()
+        }
+
     }
 
     fun shareClicked(

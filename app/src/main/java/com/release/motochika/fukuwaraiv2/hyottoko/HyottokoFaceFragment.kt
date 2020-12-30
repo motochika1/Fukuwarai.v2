@@ -1,5 +1,6 @@
 package com.release.motochika.fukuwaraiv2.hyottoko
 
+import android.animation.ObjectAnimator
 import android.os.*
 import android.util.Log
 import android.view.*
@@ -41,6 +42,15 @@ class HyottokoFaceFragment : Fragment() {
             )
             val buttons = mapOf<String, Button>("play" to play_button, "play-again" to back_button)
 
+            val rightEyeX = faceParts["right-eye"]?.x
+            val rightEyeY = faceParts["right-eye"]?.y
+            val leftEyeX = faceParts["left-eye"]?.x
+            val leftEyeY = faceParts["left-eye"]?.y
+            val noseX = faceParts["nose"]?.x
+            val noseY = faceParts["nose"]?.y
+            val mouthX = faceParts["mouth"]?.x
+            val mouthY = faceParts["mouth"]?.y
+
 
             buttons["play"]?.setOnClickListener {
 
@@ -59,31 +69,42 @@ class HyottokoFaceFragment : Fragment() {
                         buttons
                     )
                 }
-
-                faceParts.forEach {
-                    Log.d(it.key + "-x", it.value.x.toString())
-                    Log.d(it.key + "-y", it.value.y.toString())
-                }
             }
 
             buttons["play-again"]?.setOnClickListener {
 
                 //元の状態に戻す
-                faceParts["right-eye"]?.x = 189.0F
-                faceParts["right-eye"]?.y = 783.0F
-                faceParts["left-eye"]?.x = 510.0F
-                faceParts["left-eye"]?.y = 783.0F
-                faceParts["nose"]?.x = 341.0F
-                faceParts["nose"]?.y = 870.0F
-                faceParts["mouth"]?.x = 297.0F
-                faceParts["mouth"]?.y = 1137.0F
+                if (rightEyeX != null) {
+                    faceParts["right-eye"]?.x = rightEyeX
+                }
+                if (rightEyeY != null) {
+                    faceParts["right-eye"]?.y = rightEyeY
+                }
+                if (leftEyeX != null) {
+                    faceParts["left-eye"]?.x = leftEyeX
+                }
+                if (leftEyeY != null) {
+                    faceParts["left-eye"]?.y = leftEyeY
+                }
+                if (noseX != null) {
+                    faceParts["nose"]?.x = noseX
+                }
+                if (noseY != null) {
+                    faceParts["nose"]?.y = noseY
+                }
+                if (mouthX != null) {
+                    faceParts["mouth"]?.x = mouthX
+                }
+                if (mouthY != null) {
+                    faceParts["mouth"]?.y = mouthY
+                }
 
                 listener.i = 0
 
                 faceParts.map { it.value.rotation = 0.toFloat() }
 
                 (buttons["play"] ?: error("")).text = "あそぶ"
-                (buttons["play-again"] ?: error("")).visibility = View.INVISIBLE
+               (buttons["play-again"] ?: error("")).visibility = View.GONE
                 count++
             }
         }
