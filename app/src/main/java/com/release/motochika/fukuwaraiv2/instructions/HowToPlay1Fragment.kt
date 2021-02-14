@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.release.motochika.fukuwaraiv2.R
 import kotlinx.android.synthetic.main.fragment_how_to_play_1.view.*
 
-class HowToPlayFragment : Fragment() {
+class HowToPlay1Fragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

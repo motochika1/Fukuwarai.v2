@@ -28,11 +28,11 @@ class HyottokoFaceFragment : Fragment() {
 
         requireActivity().window.decorView.viewTreeObserver.addOnGlobalLayoutListener {
 
-            val faceParts = mapOf<String, View>(
+            val draggableParts = mapOf<String, View>(
                 "right-eye" to rightEye_image, "left-eye" to leftEye_image,
                 "nose" to nose_image, "mouth" to mouth_image
             )
-            val rootParts = mapOf<String, View>(
+            val undraggableParts = mapOf<String, View>(
                 "face" to hyottoko_face,
                 "root" to hyottoko_root,
                 "eye-brows" to eyebrows,
@@ -40,14 +40,14 @@ class HyottokoFaceFragment : Fragment() {
             )
             val buttons = mapOf<String, Button>("play" to play_button, "play-again" to back_button)
 
-            val rightEyeX = faceParts["right-eye"]?.x
-            val rightEyeY = faceParts["right-eye"]?.y
-            val leftEyeX = faceParts["left-eye"]?.x
-            val leftEyeY = faceParts["left-eye"]?.y
-            val noseX = faceParts["nose"]?.x
-            val noseY = faceParts["nose"]?.y
-            val mouthX = faceParts["mouth"]?.x
-            val mouthY = faceParts["mouth"]?.y
+            val rightEyeX = draggableParts["right-eye"]?.x
+            val rightEyeY = draggableParts["right-eye"]?.y
+            val leftEyeX = draggableParts["left-eye"]?.x
+            val leftEyeY = draggableParts["left-eye"]?.y
+            val noseX = draggableParts["nose"]?.x
+            val noseY = draggableParts["nose"]?.y
+            val mouthX = draggableParts["mouth"]?.x
+            val mouthY = draggableParts["mouth"]?.y
 
 
             buttons["play"]?.setOnClickListener {
@@ -56,13 +56,13 @@ class HyottokoFaceFragment : Fragment() {
                 state = count % 3
 
                 when (state) {
-                    1 -> clickHandler.playClicked(listener, faceParts, buttons)
-                    2 -> clickHandler.showFaceClicked(faceParts, buttons)
+                    1 -> clickHandler.playClicked(listener, draggableParts, buttons)
+                    2 -> clickHandler.showFaceClicked(draggableParts, buttons)
                     0 -> clickHandler.shareClicked(
                         screenShots,
                         twitterShare,
-                        faceParts,
-                        rootParts,
+                        draggableParts,
+                        undraggableParts,
                         requireActivity(),
                         buttons,
                         "ひょっとこの福笑い"
@@ -74,33 +74,33 @@ class HyottokoFaceFragment : Fragment() {
 
                 //元の状態に戻す
                 if (rightEyeX != null) {
-                    faceParts["right-eye"]?.x = rightEyeX
+                    draggableParts["right-eye"]?.x = rightEyeX
                 }
                 if (rightEyeY != null) {
-                    faceParts["right-eye"]?.y = rightEyeY
+                    draggableParts["right-eye"]?.y = rightEyeY
                 }
                 if (leftEyeX != null) {
-                    faceParts["left-eye"]?.x = leftEyeX
+                    draggableParts["left-eye"]?.x = leftEyeX
                 }
                 if (leftEyeY != null) {
-                    faceParts["left-eye"]?.y = leftEyeY
+                    draggableParts["left-eye"]?.y = leftEyeY
                 }
                 if (noseX != null) {
-                    faceParts["nose"]?.x = noseX
+                    draggableParts["nose"]?.x = noseX
                 }
                 if (noseY != null) {
-                    faceParts["nose"]?.y = noseY
+                    draggableParts["nose"]?.y = noseY
                 }
                 if (mouthX != null) {
-                    faceParts["mouth"]?.x = mouthX
+                    draggableParts["mouth"]?.x = mouthX
                 }
                 if (mouthY != null) {
-                    faceParts["mouth"]?.y = mouthY
+                    draggableParts["mouth"]?.y = mouthY
                 }
 
                 listener.i = 0
 
-                faceParts.map { it.value.rotation = 0.toFloat() }
+                draggableParts.map { it.value.rotation = 0.toFloat() }
 
                 (buttons["play"] ?: error("")).text = "あそぶ"
                 (buttons["play-again"] ?: error("")).visibility = View.INVISIBLE

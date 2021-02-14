@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/howToPlayFragment"
-        android:name="com.release.motochika.fukuwaraiv2.instructions.HowToPlayFragment"
+        android:name="com.release.motochika.fukuwaraiv2.instructions.HowToPlay1Fragment"
         android:label="fragment_how_to_play"
         tools:layout="@layout/fragment_how_to_play_1">
         <action
